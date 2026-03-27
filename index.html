@@ -240,38 +240,14 @@
   .bubble h4 { font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
   .bubble p { font-size: 12px; color: #555; line-height: 1.55; }
 
-  /* arrow tail on bubble */
-  .bubble.points-right::after {
-    content: '';
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 10px solid var(--white);
-    filter: drop-shadow(2px 0 2px rgba(0,0,0,.06));
-  }
-  .bubble.active.points-right::after { border-left-color: var(--yellow); }
-
-  .bubble.points-left::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 10px solid var(--white);
-    filter: drop-shadow(-2px 0 2px rgba(0,0,0,.06));
-  }
-  .bubble.active.points-left::before { border-right-color: var(--yellow); }
+  /* arrow tails removed */
 
   /* Spacers to vertically position callouts near their targets */
   .bubble-spacer { flex: 1; min-height: 20px; }
 
   .variant-screen.hidden { display: none; }
   .bubble.hidden { display: none; }
+  .hidden { display: none !important; }
 
   /* SLIDE 6 – DOCS LINK */
   .slide-docs {
@@ -554,14 +530,24 @@
         <div class="bubble-tag">zawsze widoczna · wydawana ręcznie</div>
       </div>
       <div class="bubble-spacer" id="sp-r2" style="flex:1"></div>
+      <div id="btn-to-b" style="margin-bottom:10px;text-align:left;">
+        <button onclick="switchVariant('b', document.querySelectorAll('.vtab')[1])" style="background:#111;color:#FFD200;border:none;padding:8px 16px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;letter-spacing:0.04em;box-shadow:0 3px 12px rgba(0,0,0,0.25);white-space:nowrap;">
+          Zobacz Wariant B →
+        </button>
+      </div>
       <div class="bubble points-left" id="bubble-under">
         <h4 contenteditable="false">Under Onboarding</h4>
         <p contenteditable="false">Nieodłączna para onboardingu — pojawia się zawsze razem z kafelkami, nigdy samodzielnie. Towarzyszy edukacji i daje użytkownikowi konkretny następny krok. Gdy aktywny jest layer, Under Onboarding znika.</p>
         <div class="bubble-tag">zachęta do subskrypcji</div>
       </div>
+      <div id="btn-to-a" class="hidden" style="margin-bottom:10px;text-align:left;">
+        <button onclick="switchVariant('a', document.querySelectorAll('.vtab')[0])" style="background:#111;color:#FFD200;border:none;padding:8px 16px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;letter-spacing:0.04em;box-shadow:0 3px 12px rgba(0,0,0,0.25);white-space:nowrap;">
+          ← Zobacz Wariant A
+        </button>
+      </div>
       <div class="bubble points-left hidden" id="bubble-layer">
         <h4 contenteditable="false">Layer — boost sprzedażowy</h4>
-        <p contenteditable="false">Baner nakładany na przestrzeń onboardingu — zastępuje kafelki i skupia całą uwagę na jednym komunikacie sprzedażowym. Segmentowany, z cappingiem — kondensuje decyzję.</p>
+        <p contenteditable="false">Baner nakładany na przestrzeń onboardingu — zastępuje kafelki i jego pojawienie się powoduje, że Under Onboarding zostaje ukryty. Skupia całą uwagę na jednym komunikacie sprzedażowym/marketingowym.</p>
       </div>
       <div class="bubble-spacer" style="flex:1"></div>
     </div>
@@ -722,14 +708,13 @@ function toggleEdit() {
 // Target points as fraction of image dimensions (x, y)
 // Measured from the full Onet page screenshot
 const TARGETS = {
-  // Wariant A — precise pixel positions (1238×2000px source)
-  belka:      { x: 0.14, y: 0.010, side: 'left' },   // premium logo w belce górnej (y=16-26px)
-  premium:    { x: 0.82, y: 0.392, side: 'right' },   // Redakcja Poleca — prawa kolumna
-  onboarding: { x: 0.12, y: 0.719, side: 'left' },    // lewy kafelek zielonego onboardingu (y≈1438px)
-  under:      { x: 0.42, y: 0.793, side: 'right' },   // underonboarding banner (y≈1586px)
+  // Wariant A — precyzyjne punkty na elementach
+  belka:      { x: 0.090, y: 0.010, side: 'left' },   // lewa krawędź logo Premium w belce
+  premium:    { x: 0.775, y: 0.391, side: 'right' },  // słowo Ultimatum w nagłówku Trumpa
+  onboarding: { x: 0.183, y: 0.720, side: 'left',  diagonal: true },  // zielony kafelek — linia po skosie
+  under:      { x: 0.572, y: 0.794, side: 'right', diagonal: true },  // SUBSKRYBUJ button na bannerze Co dzieje się
   // Wariant B
-  belkaB:     { x: 0.14, y: 0.010, side: 'left' },
-  layer:      { x: 0.50, y: 0.718, side: 'right' },  // layer 'Co dzieje sie w swiecie?' center (pod Amazonem)
+  layer:      { x: 0.394, y: 0.753, side: 'right', diagonal: true },  // SUBSKRYBUJ w banerze layera
 };
 
 let currentVariant = 'a';
@@ -789,25 +774,33 @@ function drawLines() {
 
     const isLeft = TARGETS[target].side === 'left';
 
-    // Draw path: from bubble edge, horizontal to image edge, then to target
-    const midX = isLeft ? sx : sx + sw;
+    // Target is now ON the screen edge — draw straight horizontal line
+    // from bubble tip to the screen edge at the correct Y
+    const edgeX = isLeft ? sx : sx + sw;
+    const targetY = tPx.y; // Y of the placement edge
 
+    // Yellow dashed line: diagonal for onboarding, L-shape for others
+    const dotX = tPx.x;
+    const dotY = tPx.y;
+    const isDiagonal = TARGETS[target].diagonal === true;
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    const d = `M ${bCenter.x} ${bCenter.y} L ${midX} ${bCenter.y} L ${tPx.x} ${tPx.y}`;
+    const d = isDiagonal
+      ? `M ${bCenter.x} ${bCenter.y} L ${dotX} ${dotY}`
+      : `M ${bCenter.x} ${bCenter.y} L ${dotX} ${bCenter.y} L ${dotX} ${dotY}`;
     path.setAttribute('d', d);
-    path.setAttribute('stroke', color);
+    path.setAttribute('stroke', '#FFD200');
     path.setAttribute('stroke-width', '1.8');
     path.setAttribute('fill', 'none');
     path.setAttribute('stroke-dasharray', '5 3');
-    path.setAttribute('opacity', '0.8');
+    path.setAttribute('opacity', '0.9');
     svg.appendChild(path);
 
-    // Dot at target
+    // Yellow dot at target
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', tPx.x);
-    circle.setAttribute('cy', tPx.y);
+    circle.setAttribute('cx', dotX);
+    circle.setAttribute('cy', dotY);
     circle.setAttribute('r', '5');
-    circle.setAttribute('fill', color);
+    circle.setAttribute('fill', '#FFD200');
     circle.setAttribute('stroke', '#111');
     circle.setAttribute('stroke-width', '1.5');
     svg.appendChild(circle);
@@ -824,11 +817,15 @@ function switchVariant(v, btn) {
     document.getElementById('screen-b').classList.add('hidden');
     ['bubble-belka','bubble-onboarding','bubble-premium','bubble-under'].forEach(id => document.getElementById(id).classList.remove('hidden'));
     document.getElementById('bubble-layer').classList.add('hidden');
+    document.getElementById('btn-to-b').classList.remove('hidden');
+    document.getElementById('btn-to-a').classList.add('hidden');
   } else {
     document.getElementById('screen-a').classList.add('hidden');
     document.getElementById('screen-b').classList.remove('hidden');
     ['bubble-onboarding','bubble-premium','bubble-under','bubble-belka'].forEach(id => document.getElementById(id).classList.add('hidden'));
     document.getElementById('bubble-layer').classList.remove('hidden');
+    document.getElementById('btn-to-b').classList.add('hidden');
+    document.getElementById('btn-to-a').classList.remove('hidden');
   }
 
   setTimeout(() => { positionBubbles(); drawLines(); }, 40);
@@ -852,54 +849,41 @@ function positionBubbles() {
   const yUnder      = sy + sh * 0.778;   // underonboarding banner środek
   const yLayer      = sy + sh * 0.718;   // layer 'Co dzieje sie' center - pod Amazonem
 
-  // LEFT side: belka (top), onboarding (bottom)
+  function setSpacerToAlignBubble(spacerId, bubbleEl, targetCenterY, prevBottomY) {
+    if (!bubbleEl || !document.getElementById(spacerId)) return prevBottomY;
+    const bh = bubbleEl.offsetHeight;
+    const desiredTop = targetCenterY - bh / 2;
+    const spacer = document.getElementById(spacerId);
+    const gap = desiredTop - (prevBottomY || 0);
+    spacer.style.height = Math.max(0, gap) + 'px';
+    spacer.style.flex = 'none';
+    return desiredTop + bh; // return bottom of this bubble
+  }
+
+  // LEFT: belka → onboarding
   const bubBelka = document.getElementById('bubble-belka');
   const bubOnb   = document.getElementById('bubble-onboarding');
-  const sp1      = document.getElementById('sp-l1');
-  const sp2      = document.getElementById('sp-l2');
-  if (bubBelka && sp1) {
-    const bh = bubBelka.offsetHeight;
-    sp1.style.height = Math.max(0, yBelka - bh / 2) + 'px';
-  }
-  if (bubBelka && bubOnb && sp2) {
-    const bh1 = bubBelka.offsetHeight;
-    const bh2 = bubOnb.offsetHeight;
-    const gap  = yOnboarding - yBelka - bh1;
-    sp2.style.height = Math.max(0, gap - bh2 / 2) + 'px';
-    sp2.style.flex   = 'none';
-  }
+  let leftBottom = 0;
+  leftBottom = setSpacerToAlignBubble('sp-l1', bubBelka, yBelka, 0);
+  setSpacerToAlignBubble('sp-l2', bubOnb, yOnboarding, leftBottom);
 
-  // RIGHT side: premium (top), under (bottom)
+  // RIGHT: premium → under / layer
   const bubPremium = document.getElementById('bubble-premium');
   const bubUnder   = document.getElementById('bubble-under');
-  const sp1r       = document.getElementById('sp-r1');
-  const sp2r       = document.getElementById('sp-r2');
-  if (bubPremium && sp1r) {
-    const bh = bubPremium.offsetHeight;
-    sp1r.style.height = Math.max(0, yPremium - bh / 2) + 'px';
-  }
-  if (bubPremium && bubUnder && sp2r) {
-    const bh1 = bubPremium.offsetHeight;
-    const bh2 = bubUnder.offsetHeight;
-    // Place underonboarding bubble BELOW the onboarding bubble (left side)
-    // onboarding center = y=0.719, its bottom = yOnboarding + bubOnb.offsetHeight/2
-    const onbBottom = bubOnb ? yOnboarding + bubOnb.offsetHeight / 2 + 16 : sy + sh * 0.780;
-    const targetBubbleY = Math.max(onbBottom + bh2 / 2, sy + sh * 0.793);
-    const premiumBottom = yPremium + bh1 / 2;
-    sp2r.style.height = Math.max(0, (targetBubbleY - bh2 / 2) - premiumBottom) + 'px';
-    sp2r.style.flex   = 'none';
-  }
+  const bubLayer   = document.getElementById('bubble-layer');
 
-  // RIGHT side wariant B: layer bubble aligned to yLayer
-  const bubLayer = document.getElementById('bubble-layer');
   if (bubLayer && !bubLayer.classList.contains('hidden')) {
-    // In variant B, premium + under are hidden → sp-r1 controls layer position
-    const sp1rB = document.getElementById('sp-r1');
-    const bh = bubLayer.offsetHeight;
-    if (sp1rB) sp1rB.style.height = Math.max(0, yLayer - bh / 2) + 'px';
-    // Hide sp-r2 to avoid extra spacing
+    // Variant B: only layer visible on right
+    setSpacerToAlignBubble('sp-r1', bubLayer, yLayer, 0);
     const sp2rB = document.getElementById('sp-r2');
     if (sp2rB) { sp2rB.style.height = '0px'; sp2rB.style.flex = 'none'; }
+  } else {
+    // Variant A: premium + under
+    let rightBottom = setSpacerToAlignBubble('sp-r1', bubPremium, yPremium, 0);
+    // Under sits BELOW onboarding bubble — align to yUnder but no higher than onboarding bottom
+    const onbBottom = bubOnb ? (yOnboarding + (bubOnb.offsetHeight || 0) / 2 + 12) : yUnder;
+    const underTarget = Math.max(yUnder, onbBottom + (bubUnder ? bubUnder.offsetHeight / 2 : 0));
+    setSpacerToAlignBubble('sp-r2', bubUnder, underTarget, rightBottom);
   }
 }
 
