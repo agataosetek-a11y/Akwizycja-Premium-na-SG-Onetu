@@ -1455,7 +1455,7 @@ function drawLines() {
         { bubble: 'bubble-belka',      tx: 0.090, ty: 0.010 },
         { bubble: 'bubble-premium',    tx: 0.775, ty: 0.366 },
         { bubble: 'bubble-onboarding', tx: 0.196, ty: 0.729 },
-        { bubble: 'bubble-under',      tx: 0.695, ty: 0.785 },
+        { bubble: 'bubble-under',      tx: 0.695, ty: 0.835 },
       ]
     : [
         { bubble: 'bubble-layer',      tx: 0.086, ty: 0.718 },
@@ -1528,7 +1528,7 @@ function positionBubbles() {
     'bubble-belka':      0.010,
     'bubble-premium':    0.372,
     'bubble-onboarding': 0.729,
-    'bubble-under':      0.813,
+    'bubble-under':      0.863,
     'bubble-layer':      0.718,
   };
 
@@ -1567,13 +1567,13 @@ function positionBubbles() {
   const bubOnb2 = document.getElementById('bubble-onboarding');
   if (bubOnb2) {
     const onbH = bubOnb2.offsetHeight;
-    const onbBottomY = sy + sh * 0.720 + onbH / 2;
+    const onbBottomY = sy + sh * 0.729 + onbH / 2;
     const bubUnder = document.getElementById('bubble-under');
     if (bubUnder) {
       const underH = bubUnder.offsetHeight;
-      const underDesiredTop = sy + sh * 0.793 - underH / 2;
-      // If they overlap, push under down
-      const minTop = onbBottomY + 12;
+      const underDesiredTop = sy + sh * 0.863 - underH / 2;
+      // Keep at least 20px gap below onboarding bubble
+      const minTop = onbBottomY + 40;
       const finalTop = Math.max(underDesiredTop, minTop);
       bubUnder.style.top = (finalTop + underH / 2) + 'px';
       bubUnder.style.transform = 'translateY(-50%)';
