@@ -8,7 +8,7 @@
 <style>
   :root {
     --yellow: #FFD200;
-    --black: #111111;
+    --black: #000000;
     --white: #FFFFFF;
     --cream: #F2EFE9;
     --light: #F9F7F2;
@@ -1032,7 +1032,8 @@
         </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">3</span>
-         <span class="stat-label" contenteditable="false">typy użytkowników: <strong>odkrywający Premium, rozważający subskrypcję i ci, którzy z niej zrezygnowali.</strong> Każdy z dedykowaną linią komunikacji.</span> </div>
+          <span class="stat-label" contenteditable="false">typy użytkowników: <strong>odkrywający Premium,<br>rozważający subskrypcję<br>i ci, którzy z niej zrezygnowali.</strong> Każdy z dedykowaną linią komunikacji.</span>
+        </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">1</span>
           <span class="stat-label" contenteditable="false">cel: subskrypcja Premium</span>
@@ -1108,8 +1109,8 @@
 <rect x="88" y="518" width="4" height="106" fill="#FFD200"/>
 <text x="104" y="542" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#111">Dowód</text>
 <text x="104" y="561" font-family="Arial,sans-serif" font-size="12" fill="#555">Rzetelne dziennikarstwo jako namacalny argument.</text>
-<text x="104" y="577" font-family="Arial,sans-serif" font-size="12" fill="#555">Użytkownik widzi nasze najlepsze materiały stanowiące</text>
-<text x="104" y="593" font-family="Arial,sans-serif" font-size="12" fill="#555">wizytówkę Premium.</text>
+<text x="104" y="577" font-family="Arial,sans-serif" font-size="12" fill="#555">Użytkownik widzi nasze najlepsze materiały</text>
+<text x="104" y="593" font-family="Arial,sans-serif" font-size="12" fill="#555">stanowiące wizytówkę Premium.</text>
 <rect x="104" y="609" width="116" height="18" rx="9" fill="#111"/>
 <text x="162" y="621" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#FFD200">Sekcja Premium</text>
 
@@ -1231,7 +1232,7 @@
           <li contenteditable="false">Sekcja dedykowana treściom Premium</li>
           <li contenteditable="false">Brak labelek Premium oraz autora na cardach</li>
           <li contenteditable="false">Biała podlewka na dużym cardzie — zawsze tej samej wysokości</li>
-          <li contenteditable="false">Tytuł maks. 3 linie — przy przepełnieniu obcinamy z (…)</li>
+          <li contenteditable="false">Tytuł maks. 3 linie. Rekomendowana liczba znaków tytułu to 65. Przy przepełnieniu obcinamy z (…)</li>
           <li contenteditable="false">Tytuł sekcji stały — taki sam na desktop i mobile (zatwierdzony przez Redakcję, Marketing oraz UX)</li>
           <li contenteditable="false">Dedykowane tytuły zajawek tylko dla tej listy materiałów</li>
           <li contenteditable="false">Lista ręcznie premoderowana (maks. 20 zajawek) i personalizowana przez Aureus; deduplikowana z unifeedem i pilną extra; deboosting jak w Widgecie.</li>
@@ -1290,7 +1291,7 @@
       <!-- Belka top mobile -->
       <div class="mobile-screen top-align" id="mobile-belka">
         <div class="mobile-screen-label">Mobile</div>
-			<img src="https://cdn.raspaid.pl/zasoby/Belka%20top%20mobile.png" alt="Belka top mobile">
+			<img src="https://cdn.raspaid.pl/zasoby/belka%20top%20mobile%201.png" alt="Belka top mobile">
       </div>
       <!-- Sekcja Premium mobile -->
       <div class="mobile-screen" id="mobile-premium">
@@ -1311,33 +1312,320 @@
 
   </div><!-- /annotated-layout -->
 
-</section>
-
-
-
-<!-- ====== SLIDE 5: LINIE KOMUNIKACYJNE ====== -->
-<section class="slide-comms">
-  <p class="placement-label" contenteditable="false">LINIE KOMUNIKACYJNE</p>
-  <h2 class="section-title" contenteditable="false">Jeden placement. Trzy linie komunikacji</h2>
-  <p class="section-lead" contenteditable="false">Placement jest ten sam — zmienia się linia komunikacyjna dobrana do profilu użytkownika. Winback, Prospekt i User widzą przekaz, który pasuje do tego, gdzie są.</p>
-  <div class="comms-grid">
-    <div class="comm-card">
-      <span class="comm-tag winback">Winback</span>
-      <div class="comm-title" contenteditable="false">Wróć do Premium</div>
-      <div class="comm-desc" contenteditable="false">Oparta na wspomnieniu wartości. Użytkownik wie, co traci — wystarczy mu przypomnieć i obniżyć barierę powrotu.</div>
-    </div>
-    <div class="comm-card">
-      <span class="comm-tag prospekt">Prospekt</span>
-      <div class="comm-title" contenteditable="false">Dołącz do Premium</div>
-      <div class="comm-desc" contenteditable="false">Bezpośredni przekaz z wyraźnym CTA i ceną. Użytkownik jest gotowy — pomagamy mu podjąć decyzję tu i teraz.</div>
-    </div>
-    <div class="comm-card">
-      <span class="comm-tag user">User</span>
-      <div class="comm-title" contenteditable="false">Odkryj Premium</div>
-      <div class="comm-desc" contenteditable="false">Łagodne zaproszenie. Edukacja, wartość, brak presji — budujemy zainteresowanie na przyszłość.</div>
-    </div>
+  <!-- BUTTON -->
+  <div style="margin-top:40px;text-align:center;">
+    <button id="btn-premium-instructions" onclick="togglePremiumInstructions()" style="
+      background:#111;color:#FFD200;border:none;
+      padding:20px 48px;border-radius:40px;
+      font-family:'Fira Sans',Arial,sans-serif;
+      font-size:18px;font-weight:800;
+      cursor:pointer;letter-spacing:0.05em;
+      box-shadow:0 6px 24px rgba(0,0,0,0.25);
+      display:inline-flex;align-items:center;gap:14px;
+      transition:all .2s;
+    ">
+      <span>Zasady wydawania Sekcji Premium na SG</span>
+      <span id="btn-premium-arrow" style="font-size:22px;transition:transform .3s;">↓</span>
+    </button>
   </div>
+
 </section>
+
+<!-- ====== PANEL: INSTRUKCJE SEKCJI PREMIUM ====== -->
+<div id="panel-premium-instructions" style="display:none;background:var(--cream);border-top:3px solid #FFD200;">
+<section style="background:var(--cream);min-height:auto;padding:80px 60px 80px;display:block;">
+
+
+  <!-- KONTENER -->
+  <div style="max-width:990px;margin:0 auto;">
+
+    <!-- INSTRUKTAŻ WYDAWNICZY -->
+    <div style="background:#fff;border-radius:16px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
+      <h3 style="font-size:22px;font-weight:900;color:#000;margin-bottom:32px;line-height:1.2;">Top 5 zasad wydawania Sekcji Premium na SG</h3>
+
+      <!-- 5 ZASAD -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">1</div>
+          <div style="padding-top:6px;">
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Selekcja i ręczny wybór wydawcy.</strong> Treści do Sekcji Premium są wybierane <strong>ręcznie</strong> przez wydawców SG, w porozumieniu z M. Marczakiem i redakcjami (decyzja oparta na: <strong>tematyce treści</strong>, jej „premiumowym" potencjale, jakości materiału, <strong>weryfikacji performance'u premium</strong> (wysoki PV off limit i/lub PV subs).</p>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;margin-left:56px;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">2</div>
+          <div style="padding-top:6px;">
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Dłuższa ekspozycja najlepszych treści.</strong> Sekcja Premium pozwala by najlepsze treści były eksponowane <strong>dłużej niż pozwala dynamika widgeta newsowego</strong>. <strong>Nie jest selekcją „top performance'u" EPV.</strong></p>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;margin-left:56px;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">3</div>
+          <div style="padding-top:6px;">
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Zgodność z wytycznymi playbooka Premium.</strong> Treści na sekcję wybieramy zgodnie z wytycznymi z playbooka Premium (nie "zamykamy" breaking newsów, commodity newsów itd.), w tej sekcji: treści unikalne, pogłębiające temat, z autorską perspektywą i wpływem na wizerunek [społeczne, reportaże, wywiady premium, tłumaczenia z ekskluzywnych partnerstw, materiały "własnej narracji": nasze wyliczenia, rankingi i zestawienia]</p>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;margin-left:56px;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">4</div>
+          <div style="padding-top:6px;">
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Miejsce na superprodukcje i materiały, którymi chcemy się pochwalić.</strong> To także miejsce do dłuższej ekspozycji naszych superprodukcji i materiałów, którymi szczególnie chcemy się pochwalić dużo dłużej, niż mogłyby one "żyć" na widgecie ("Prawdziwa cena alkoholu", ranking Forbesa, ranking miast, hitowy reportaż śledczy naszego reportera)</p>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;margin-left:56px;"></div>
+
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">5</div>
+          <div style="padding-top:6px;">
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Tytuły w sekcji.</strong> Ustawiane przez wydawcę, zgodne z zasadą dbałości o tone of voice: pozbawione clickbaitu/klisz, w miarę możliwości podkreślające <strong>unikalność materiału</strong> i <strong>autorski wkład redakcji</strong>, jasno komunikujące „dlaczego to jest Premium" (np. Dotarliśmy do doradcy prezydenta USA. Twórca słynnej krzywej Laffera ostrzega Polskę). Rekomendowana liczba znaków tytułu: 65.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SEKCJA: CO TRAFIA / CO NIE TRAFIA -->
+      <div style="margin-top:48px;border-top:2px solid #f0ede8;padding-top:40px;">
+
+        <!-- PUBLIKUJÓWEMY / NIE PUBLIKUJEMY obok siebie -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;" id="pub-grid">
+
+          <!-- PUBLIKUJEMY -->
+          <div>
+            <h4 style="font-size:15px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;">Publikujemy w sekcji</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+
+              <div data-pair="1" style="display:flex;gap:14px;align-items:stretch;background:#f0faf1;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#22a832;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✓</div>
+                <div><span style="font-size:12px;font-weight:800;color:#22a832;">Analiza & Komentarz</span> <span style="background:#d4edda;color:#22a832;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;">82% ePV share</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Pogłębione analizy wydarzeń, komentarze autorskie, prognozy. Treści, które tłumaczą „dlaczego" i „co dalej" — nie tylko „co się stało"</span></div>
+              </div>
+
+              <div data-pair="2" style="display:flex;gap:14px;align-items:stretch;background:#f0faf1;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#22a832;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✓</div>
+                <div><span style="font-size:12px;font-weight:800;color:#22a832;">Kulisy & Śledztwa</span> <span style="background:#d4edda;color:#22a832;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;">584K pv off-limit</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Informacje zza kulis polityki, biznesu, dyplomacji. Materiały śledcze, nieznane fakty, ekskluzywne ustalenia redakcji</span></div>
+              </div>
+
+              <div data-pair="3" style="display:flex;gap:14px;align-items:stretch;background:#f0faf1;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#22a832;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✓</div>
+                <div><span style="font-size:12px;font-weight:800;color:#22a832;">Reportaż & Long-reads</span> <span style="background:#d4edda;color:#22a832;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;">31 subskrypcji / artykuł</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Długie formy dziennikarskie, reportaże z terenu, historie ludzi. Format premium, który buduje markę i przywiązanie czytelnika</span></div>
+              </div>
+
+              <div data-pair="4" style="display:flex;gap:14px;align-items:stretch;background:#f0faf1;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#22a832;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✓</div>
+                <div><span style="font-size:12px;font-weight:800;color:#22a832;">Dane & Prognozy</span> <span style="background:#d4edda;color:#22a832;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;">229K pv off-limit</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Sondaże, prognozy wyborcze, rankingi, analizy danych. Unikalne materiały oparte na badaniach i liczbach</span></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- NIE PUBLIKUJEMY -->
+          <div>
+            <h4 style="font-size:15px;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;">Nie publikujemy w sekcji</h4>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+
+              <div data-pair="1" style="display:flex;gap:14px;align-items:stretch;background:#fdf5f5;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#e53e3e;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✕</div>
+                <div><span style="font-size:12px;font-weight:800;color:#e53e3e;">Breaking news za paywallem</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Newsy, które użytkownik znajdzie za darmo w TVN24, WP, Gazecie. Paywall na breaking newsie budzi frustrację, nie konwersję.</span></div>
+              </div>
+
+              <div data-pair="2" style="display:flex;gap:14px;align-items:stretch;background:#fdf5f5;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#e53e3e;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✕</div>
+                <div><span style="font-size:12px;font-weight:800;color:#e53e3e;">Treści z niskim ePV share (&lt;60%)</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Jeśli użytkownicy odbijają się od treści, nie buduje ona wartości premium. Wysoki quick exit = zły sygnał.</span></div>
+              </div>
+
+              <div data-pair="3" style="display:flex;gap:14px;align-items:stretch;background:#fdf5f5;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#e53e3e;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✕</div>
+                <div><span style="font-size:12px;font-weight:800;color:#e53e3e;">Clickbait premium</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Tytuły obiecujące sensację, a dostarczające banalną treść. Sekcja premium musi budować zaufanie, nie rozczarowanie.</span></div>
+              </div>
+
+              <div data-pair="4" style="display:flex;gap:14px;align-items:stretch;background:#fdf5f5;border-radius:10px;padding:14px 16px;">
+                <div style="flex-shrink:0;color:#e53e3e;font-size:16px;font-weight:900;line-height:1;margin-top:1px;">✕</div>
+                <div><span style="font-size:12px;font-weight:800;color:#e53e3e;">Treści bez wyraźnego autora</span><br><span style="font-size:12px;color:#666;line-height:1.6;">Sekcja premium to przestrzeń dla nazwisk — dziennikarzy, komentatorów, ekspertów. Anonimowe treści obniżają postrzeganą wartość.</span></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- JAK OCENIĆ CZY ARTYKUŁ PASUJE -->
+        <h4 style="font-size:15px;font-weight:900;color:#000;margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;">Jak ocenić, czy artykuł pasuje do sekcji?</h4>
+        <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:24px;">Im więcej z tych cech ma materiał — tym większa pewność, że warto go tu umieścić.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;">
+
+          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+            <div style="height:5px;background:#FFD200;"></div>
+            <div style="padding:20px;background:#f9f9f9;">
+              <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Pewny wybór</div>
+              <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Spełnia wszystkie z tych cech</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Treść premium (paywall)</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">ePV share ≥ 70%</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Unikalna wartość — niedostępna w innych mediach za darmo</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Materiał autorski, sygnowany nazwiskiem dziennikarza</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+            <div style="height:5px;background:#FFE566;"></div>
+            <div style="padding:20px;background:#f9f9f9;">
+              <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Dobry kandydat</div>
+              <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Spełnia kilka z tych cech</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Podobne artykuły wcześniej generowały subskrypcje</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Dużo czytelników za paywallem (wysoki ruch off-limit)</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Temat aktualny — w centrum debaty publicznej</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Potencjał do dyskusji w mediach społecznościowych</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+            <div style="height:5px;background:#FFF0A0;"></div>
+            <div style="padding:20px;background:#f9f9f9;">
+              <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Warto rozważyć</div>
+              <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Dodatkowe argumenty za</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Zawiera wideo, infografikę lub mapę</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Ciąg dalszy tematu, który wcześniej przyciągnął subskrybentów</div>
+                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Ekskluzywny rozmówca lub unikalne źródło</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background:#f9f9f9;border-radius:10px;padding:16px 24px;text-align:center;">
+          <span style="font-size:13px;font-weight:700;color:#333;letter-spacing:.03em;">Dążymy do tego, żeby treści prezentowane w sekcji odpowiadały na każdy element</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRZYCISK ZWIŃ -->
+  <div style="text-align:left;margin-top:48px;max-width:990px;margin-left:auto;margin-right:auto;">
+    <button onclick="togglePremiumInstructions()" style="
+      background:transparent;color:#111;
+      border:1.5px solid #bbb;
+      padding:10px 22px;border-radius:24px;
+      font-family:'Fira Sans',Arial,sans-serif;
+      font-size:12px;font-weight:700;
+      cursor:pointer;letter-spacing:0.05em;
+      display:inline-flex;align-items:center;gap:8px;
+    ">
+      <span>↑</span><span>Zwiń</span>
+    </button>
+  </div>
+
+</section>
+</div>
+
+<script>
+function equalizePubliGrid() {
+  for (let i = 1; i <= 4; i++) {
+    const els = document.querySelectorAll('[data-pair="' + i + '"]');
+    if (els.length < 2) continue;
+    els.forEach(el => el.style.minHeight = '');
+    const maxH = Math.max(...Array.from(els).map(el => el.offsetHeight));
+    els.forEach(el => el.style.minHeight = maxH + 'px');
+  }
+}
+
+function togglePremiumInstructions() {
+  const panel = document.getElementById('panel-premium-instructions');
+  const arrow = document.getElementById('btn-premium-arrow');
+  const btn   = document.getElementById('btn-premium-instructions');
+  const isOpen = panel.style.display !== 'none';
+
+  if (isOpen) {
+    panel.style.display = 'none';
+    arrow.style.transform = 'rotate(0deg)';
+    btn.querySelector('span').textContent = 'Zasady wydawania Sekcji Premium na SG';
+  } else {
+    panel.style.display = 'block';
+    arrow.style.transform = 'rotate(180deg)';
+    btn.querySelector('span').textContent = 'Ukryj instrukcje dot. Sekcji Premium';
+    setTimeout(() => {
+      equalizePubliGrid();
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+}
+</script>
+
+
+
+<!-- ====== SLIDE: JAK ŚLEDZIĆ EFEKTYWNOŚĆ ====== -->
+<section style="background:var(--cream);padding:90px 60px 80px;display:block;min-height:auto;">
+
+  <p class="placement-label">MIERZENIE EFEKTYWNOŚCI</p>
+  <h2 class="section-title" style="margin-bottom:12px;">Jak śledzić efektywność?</h2>
+  <p class="section-lead" style="margin-bottom:48px;">Poniżej narzędzia, które pozwalają ocenić skuteczność poszczególnych elementów akwizycji na stronie głównej.</p>
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:860px;">
+
+    <div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:12px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+      <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="4" fill="#000"/><circle cx="11" cy="11" r="7" stroke="#000" stroke-width="2"/><path d="M11 2v2M11 18v2M2 11h2M18 11h2" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:6px;">Efektywność treści premium — 🔴 live</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">Dostępna w Ringu, w statystykach story — można tam sprawdzić liczbę wygenerowanych konwersji z danej treści premium.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:12px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+      <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#000" stroke-width="2"/><path d="M7 8h8M7 12h5" stroke="#000" stroke-width="2" stroke-linecap="round"/><path d="M14 15l2 2 3-3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:6px;">Efektywność sekcji <span style="font-size:11px;font-weight:700;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;">wkrótce</span></div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">Raport mówiący o efektywności treści premium w danej sekcji na SG — z którego miejsca na stronie głównej sprzedaje się najwięcej subskrypcji. Pojawi się wkrótce.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:12px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+      <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="14" rx="2" stroke="#000" stroke-width="2"/><path d="M7 2v3M15 2v3M2 10h18" stroke="#000" stroke-width="2" stroke-linecap="round"/><path d="M6 14h2M10 14h2M14 14h2" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:6px;">Efektywność placementów promocyjnych</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">Dedykowany raport w Quicksite/Tableau, gdzie można zweryfikować efektywność każdego elementu z osobna. Placementy są otagowane — dane widoczne do poprzedniego dnia.</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap;">
+          <a href="http://tableau-prod-1.grupa.onet/views/Efektywnoelementwpromocyjnychstrony/Modaleffectivness" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#000;color:#FFD200;text-decoration:none;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:.04em;">Otwórz raport →</a>
+          <span style="font-size:11px;color:#999;">Brak dostępu? Zgłoś prośbę w IHD: <strong style="color:#555;">Tableau Paid Content Tools → Promo elements effectivness</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border-radius:12px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+      <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17l5-5 4 4 7-8" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 20h16" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:6px;">Efektywność strony głównej</div>
+        <div style="font-size:13px;color:#555;line-height:1.7;">Raport pokazujący ile konwersji generuje strona główna jako source. Jeśli sesja użytkownika rozpoczęła się od SG i zakończyła konwersją — czy to przez placement, czy przez artykuł po przekliku z sekcji — zostanie ona przypisana do źródła „homepage". Dane dostępne do poprzedniego dnia.</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap;">
+          <a href="https://eu-central-1.quicksight.aws.amazon.com/sn/account/rasp-prod/dashboards/22e101e7-a86e-44c8-af94-19082b6b8a32/views/9706f45e-2e7a-4324-bd77-f846ffce91cf" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#000;color:#FFD200;text-decoration:none;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:.04em;">Otwórz raport →</a>
+          <span style="font-size:11px;color:#999;">Brak dostępu? Zgłoś prośbę w IHD: <strong style="color:#555;">Quicksite → Conversion Funnel by traffic sources</strong></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <!-- ====== SLIDE PRZED/PO ====== -->
@@ -1380,7 +1668,7 @@
     <div class="ba-col ba-col-mobile">
       <div class="ba-label ba-label-after" contenteditable="false">Z elementami akwizycyjnymi</div>
       <div class="ba-screen ba-screen-after">
-		<img src="https://cdn.raspaid.pl/zasoby/Mobile%20po.png" alt="Mobile po">
+		<img src="https://cdn.raspaid.pl/zasoby/Mobile%20po%201.png" alt="Mobile po">
       </div>
     </div>
   </div>
@@ -1518,6 +1806,30 @@
     </div>
   </div>
 
+</section>
+
+<!-- ====== SLIDE 5: LINIE KOMUNIKACYJNE ====== -->
+<section class="slide-comms">
+  <p class="placement-label" contenteditable="false">LINIE KOMUNIKACYJNE</p>
+  <h2 class="section-title" contenteditable="false">Jeden placement. Trzy linie komunikacji</h2>
+  <p class="section-lead" contenteditable="false">Placement jest ten sam — zmienia się linia komunikacyjna dobrana do profilu użytkownika. Winback, Prospekt i User widzą przekaz, który pasuje do tego, gdzie są.</p>
+  <div class="comms-grid">
+    <div class="comm-card">
+      <span class="comm-tag winback">Winback</span>
+      <div class="comm-title" contenteditable="false">Wróć do Premium</div>
+      <div class="comm-desc" contenteditable="false">Oparta na wspomnieniu wartości. Użytkownik wie, co traci — wystarczy mu przypomnieć i obniżyć barierę powrotu.</div>
+    </div>
+    <div class="comm-card">
+      <span class="comm-tag prospekt">Prospekt</span>
+      <div class="comm-title" contenteditable="false">Dołącz do Premium</div>
+      <div class="comm-desc" contenteditable="false">Bezpośredni przekaz z wyraźnym CTA i ceną. Użytkownik jest gotowy — pomagamy mu podjąć decyzję tu i teraz.</div>
+    </div>
+    <div class="comm-card">
+      <span class="comm-tag user">User</span>
+      <div class="comm-title" contenteditable="false">Odkryj Premium</div>
+      <div class="comm-desc" contenteditable="false">Łagodne zaproszenie. Edukacja, wartość, brak presji — budujemy zainteresowanie na przyszłość.</div>
+    </div>
+  </div>
 </section>
 
 <!-- ====== SLIDE 4: SEGMENTACJA ====== -->
