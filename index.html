@@ -399,9 +399,8 @@
     box-shadow: 0 8px 40px rgba(0,0,0,.13);
     border: 1px solid rgba(0,0,0,.06);
     background: #fff;
-    height: 380px;
   }
-  .ws-screen-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center top; }
+  .ws-screen-wrap img { width: 100%; height: auto; display: block; }
 
   .ws-info {
     background: var(--white);
@@ -1171,7 +1170,7 @@
 
     <!-- LEFT: Welcome Screen -->
     <div class="ws-col">
-      <div class="ws-screen-wrap">
+      <div class="ws-screen-wrap" id="welcome-wrap">
         <img src="https://cdn.raspaid.pl/zasoby/Welcome%20Screen.jpg" alt="Welcome Screen" />
       </div>
       <div class="ws-info">
@@ -1190,8 +1189,8 @@
 
     <!-- RIGHT: Modal -->
     <div class="ws-col">
-      <div class="ws-screen-wrap">
-        <img src="https://cdn.raspaid.pl/zasoby/Modal%20akwizycyjny.png" alt="Modal akwizycyjny" />
+      <div class="ws-screen-wrap" id="modal-wrap" style="overflow:hidden;">
+        <img src="https://cdn.raspaid.pl/zasoby/Modal%20akwizycyjny.png" alt="Modal akwizycyjny" id="modal-img" style="width:100%;display:block;" />
       </div>
       <div class="ws-info">
         <div class="ws-name">Modal akwizycyjny</div>
@@ -1315,7 +1314,7 @@
       display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
       flex:1;white-space:nowrap;
     ">
-      <span style="flex:1;text-align:left;">DLA REDAKCJI: Zasady publikowania w sekcji</span>
+      <span style="flex:1;text-align:center;">DLA REDAKCJI: Zasady publikowania w sekcji</span>
       <span id="btn-premium-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
     </button>
 
@@ -1329,7 +1328,7 @@
       display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
       flex:1;white-space:nowrap;
     ">
-      <span style="flex:1;text-align:left;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
+      <span style="flex:1;text-align:center;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
       <span id="btn-tech-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
     </button>
   </div>
@@ -2613,8 +2612,9 @@ function positionBubbles() {
   };
 
   const pixelOffsets = {
-    'bubble-onboarding': -20,
-    'bubble-under':      -45,
+    'bubble-onboarding': -100,
+    'bubble-under':      -125,
+    'bubble-layer':      -20,
   };
 
   const btnOffsets = {
@@ -2651,15 +2651,10 @@ function positionBubbles() {
   // Prevent onboarding and under from overlapping
   const bubOnb2 = document.getElementById('bubble-onboarding');
   if (bubOnb2) {
-    const onbH = bubOnb2.offsetHeight;
-    const onbBottomY = sy + sh * 0.729 - 20 + onbH / 2;
     const bubUnder = document.getElementById('bubble-under');
     if (bubUnder) {
       const underH = bubUnder.offsetHeight;
-      const underDesiredTop = sy + sh * 0.863 - 80 - underH / 2;
-      // Keep at least 8px gap below onboarding bubble
-      const minTop = onbBottomY + 8;
-      const finalTop = Math.max(underDesiredTop, minTop);
+      const finalTop = sy + sh * 0.863 - 180;
       bubUnder.style.top = (finalTop + underH / 2) + 'px';
       bubUnder.style.transform = 'translateY(-50%)';
     }
@@ -2671,6 +2666,23 @@ function positionBubbles() {
 window.addEventListener('load', () => {
   positionBubbles();
   setTimeout(drawLines, 100);
+
+  // Match modal height to welcome screen
+  function matchModalHeight() {
+    const ws = document.getElementById('welcome-wrap');
+    const modal = document.getElementById('modal-wrap');
+    const img = document.getElementById('modal-img');
+    if (!ws || !modal || !img) return;
+    const h = ws.offsetHeight;
+    if (h === 0) return;
+    modal.style.height = h + 'px';
+    // center vertically on modal popup area (roughly 30% from top)
+    img.style.objectFit = 'cover';
+    img.style.objectPosition = 'center 30%';
+    img.style.height = '100%';
+  }
+  setTimeout(matchModalHeight, 200);
+  window.addEventListener('resize', matchModalHeight);
 });
 window.addEventListener('resize', () => {
   positionBubbles();
