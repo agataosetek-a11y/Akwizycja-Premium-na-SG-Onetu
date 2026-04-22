@@ -1283,42 +1283,52 @@
     </div>
 
     <!-- RIGHT: screen -->
-    <div class="center-screen" id="centerScreen">
-      <div class="variant-screen" id="screen-a">
-       <img src="https://cdn.raspaid.pl/zasoby/Onet%20screen%20A.png" alt="Onet screen A">
-      </div>
-      <div class="variant-screen hidden" id="screen-b">
-        <img src="https://cdn.raspaid.pl/zasoby/Onet%20screen%20B.png" alt="Onet screen B">      </div>
-      <!-- BUTTONY bezpośrednio pod screenem -->
-      <div style="display:flex;gap:12px;margin-top:16px;margin-left:-40px;margin-right:-40px;">
-        <button id="btn-premium-instructions" onclick="togglePremiumInstructions()" style="
-          background:#111;color:#FFD200;border:none;
-          padding:18px 24px;border-radius:40px;
-          font-family:'Fira Sans',Arial,sans-serif;
-          font-size:15px;font-weight:800;
-          cursor:pointer;letter-spacing:0.04em;
-          box-shadow:0 6px 24px rgba(0,0,0,0.25);
-          display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
-          flex:1;white-space:nowrap;
-        ">
-          <span style="flex:1;text-align:left;">DLA REDAKCJI: Zasady wydawania sekcji</span>
-          <span id="btn-premium-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
-        </button>
-        <button id="btn-tech-instructions" onclick="toggleTechInstructions()" style="
-          background:#111;color:#FFD200;border:none;
-          padding:18px 24px;border-radius:40px;
-          font-family:'Fira Sans',Arial,sans-serif;
-          font-size:15px;font-weight:800;
-          cursor:pointer;letter-spacing:0.04em;
-          box-shadow:0 6px 24px rgba(0,0,0,0.25);
-          display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
-          flex:1;white-space:nowrap;
-        ">
-          <span style="flex:1;text-align:left;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
-          <span id="btn-tech-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
-        </button>
-      </div>
-    </div>
+<div class="center-screen" id="centerScreen">
+  <div class="variant-screen" id="screen-a">
+    <img src="https://cdn.raspaid.pl/zasoby/Onet%20screen%20A.png" alt="Onet screen A">
+  </div>
+
+  <div class="variant-screen hidden" id="screen-b">
+    <img src="https://cdn.raspaid.pl/zasoby/Onet%20screen%20B.png" alt="Onet screen B">
+  </div>
+
+  <!-- BUTTONY pod screenem -->
+  <div style="
+    display:flex;
+    gap:12px;
+    margin-top:48px;
+    margin-left:-40px;
+    margin-right:-40px;
+  ">
+    <button id="btn-premium-instructions" onclick="togglePremiumInstructions()" style="
+      background:#111;color:#FFD200;border:none;
+      padding:18px 24px;border-radius:40px;
+      font-family:'Fira Sans',Arial,sans-serif;
+      font-size:15px;font-weight:800;
+      cursor:pointer;letter-spacing:0.04em;
+      box-shadow:0 4px 10px rgba(0,0,0,0.18);
+      display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+      flex:1;white-space:nowrap;
+    ">
+      <span style="flex:1;text-align:left;">DLA REDAKCJI: Zasady wydawania sekcji</span>
+      <span id="btn-premium-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+    </button>
+
+    <button id="btn-tech-instructions" onclick="toggleTechInstructions()" style="
+      background:#111;color:#FFD200;border:none;
+      padding:18px 24px;border-radius:40px;
+      font-family:'Fira Sans',Arial,sans-serif;
+      font-size:15px;font-weight:800;
+      cursor:pointer;letter-spacing:0.04em;
+      box-shadow:0 4px 10px rgba(0,0,0,0.18);
+      display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+      flex:1;white-space:nowrap;
+    ">
+      <span style="flex:1;text-align:left;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
+      <span id="btn-tech-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+    </button>
+  </div>
+</div>
 
 
     <!-- RIGHT: mobile screens -->
