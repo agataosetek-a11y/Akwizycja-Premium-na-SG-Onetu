@@ -1369,7 +1369,7 @@
 
     <!-- INSTRUKTAŻ WYDAWNICZY -->
     <div style="background:#fff;border-radius:16px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
-      <h3 style="font-size:22px;font-weight:900;color:#000;margin-bottom:32px;line-height:1.2;">Top 5 zasad wydawania Sekcji Premium na SG</h3>
+      <h3 style="font-size:22px;font-weight:900;color:#000;margin-bottom:32px;line-height:1.2;">Top 5 zasad publikowania w Sekcji Premium na SG</h3>
 
       <!-- 5 ZASAD -->
       <div style="display:flex;flex-direction:column;gap:20px;">
@@ -1377,7 +1377,7 @@
         <div style="display:flex;gap:20px;align-items:flex-start;">
           <div style="flex-shrink:0;width:36px;height:36px;background:#FFD200;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#000;">1</div>
           <div style="padding-top:6px;">
-            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Selekcja i ręczny wybór wydawcy.</strong> Treści do Sekcji Premium są wybierane <strong>ręcznie</strong> przez wydawców SG, w porozumieniu z M. Marczakiem i redakcjami (decyzja oparta na: <strong>tematyce treści</strong>, jej „premiumowym" potencjale, jakości materiału, <strong>weryfikacji performance'u premium</strong> (wysoki PV off limit i/lub PV subs).</p>
+            <p style="font-size:14px;color:#333;line-height:1.75;margin:0;"><strong>Selekcja i ręczny wybór wydawcy.</strong> Treści do Sekcji Premium są wybierane <strong>ręcznie</strong> przez wydawców SG, w porozumieniu z M.&nbsp;Marczakiem i redakcjami (decyzja oparta na: <strong>tematyce treści</strong>, jej „premiumowym" potencjale, jakości materiału, <strong>weryfikacji performance'u premium</strong> (wysoki PV off limit i/lub PV subs).</p>
           </div>
         </div>
 
@@ -1578,11 +1578,11 @@ function togglePremiumInstructions() {
   if (isOpen) {
     panel.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
-    btn.querySelector('span').textContent = 'DLA REDAKCJI: Zasady wydawania sekcji';
+    btn.querySelector('span').textContent = 'DLA REDAKCJI: Zasady publikowania w sekcji';
   } else {
     panel.style.display = 'block';
     arrow.style.transform = 'rotate(180deg)';
-    btn.querySelector('span').textContent = 'UKRYJ zasady wydawania sekcji';
+    btn.querySelector('span').textContent = 'UKRYJ zasady publikowania w sekcji';
     setTimeout(() => {
       equalizePubliGrid();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
