@@ -399,8 +399,9 @@
     box-shadow: 0 8px 40px rgba(0,0,0,.13);
     border: 1px solid rgba(0,0,0,.06);
     background: #fff;
+    height: 380px;
   }
-  .ws-screen-wrap img { width: 100%; height: auto; display: block; }
+  .ws-screen-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center top; }
 
   .ws-info {
     background: var(--white);
@@ -595,10 +596,15 @@
   .center-screen {
     position: relative;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 12px 60px rgba(0,0,0,.18);
     border: 1px solid rgba(0,0,0,.07);
     z-index: 2;
+  }
+  .center-screen .variant-screen img {
+    border-radius: 10px;
+    display: block;
+    width: 100%;
   }
   .center-screen img { width: 100%; display: block; }
 
@@ -1283,6 +1289,35 @@
       </div>
       <div class="variant-screen hidden" id="screen-b">
         <img src="https://cdn.raspaid.pl/zasoby/Onet%20screen%20B.png" alt="Onet screen B">      </div>
+      <!-- BUTTONY bezpośrednio pod screenem -->
+      <div style="display:flex;gap:12px;margin-top:16px;margin-left:-40px;margin-right:-40px;">
+        <button id="btn-premium-instructions" onclick="togglePremiumInstructions()" style="
+          background:#111;color:#FFD200;border:none;
+          padding:18px 24px;border-radius:40px;
+          font-family:'Fira Sans',Arial,sans-serif;
+          font-size:15px;font-weight:800;
+          cursor:pointer;letter-spacing:0.04em;
+          box-shadow:0 6px 24px rgba(0,0,0,0.25);
+          display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+          flex:1;white-space:nowrap;
+        ">
+          <span style="flex:1;text-align:left;">DLA REDAKCJI: Zasady wydawania sekcji</span>
+          <span id="btn-premium-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+        </button>
+        <button id="btn-tech-instructions" onclick="toggleTechInstructions()" style="
+          background:#111;color:#FFD200;border:none;
+          padding:18px 24px;border-radius:40px;
+          font-family:'Fira Sans',Arial,sans-serif;
+          font-size:15px;font-weight:800;
+          cursor:pointer;letter-spacing:0.04em;
+          box-shadow:0 6px 24px rgba(0,0,0,0.25);
+          display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+          flex:1;white-space:nowrap;
+        ">
+          <span style="flex:1;text-align:left;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
+          <span id="btn-tech-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+        </button>
+      </div>
     </div>
 
 
@@ -1311,23 +1346,6 @@
     </div>
 
   </div><!-- /annotated-layout -->
-
-  <!-- BUTTON -->
-  <div style="margin-top:40px;text-align:center;">
-    <button id="btn-premium-instructions" onclick="togglePremiumInstructions()" style="
-      background:#111;color:#FFD200;border:none;
-      padding:20px 48px;border-radius:40px;
-      font-family:'Fira Sans',Arial,sans-serif;
-      font-size:18px;font-weight:800;
-      cursor:pointer;letter-spacing:0.05em;
-      box-shadow:0 6px 24px rgba(0,0,0,0.25);
-      display:inline-flex;align-items:center;gap:14px;
-      transition:all .2s;
-    ">
-      <span>Zasady wydawania Sekcji Premium na SG</span>
-      <span id="btn-premium-arrow" style="font-size:22px;transition:transform .3s;">↓</span>
-    </button>
-  </div>
 
 </section>
 
@@ -1460,50 +1478,50 @@
         <p style="font-size:13px;color:#666;line-height:1.65;margin-bottom:24px;">Im więcej z tych cech ma materiał — tym większa pewność, że warto go tu umieścić.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;">
 
-          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+          <div style="background:#FFFDE7;border-radius:10px;overflow:hidden;">
             <div style="height:5px;background:#FFD200;"></div>
-            <div style="padding:20px;background:#f9f9f9;">
+            <div style="padding:20px;background:#FFFDE7;">
               <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Pewny wybór</div>
               <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Spełnia wszystkie z tych cech</div>
-              <div style="display:flex;flex-direction:column;gap:8px;">
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Treść premium (paywall)</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">ePV share ≥ 70%</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Unikalna wartość — niedostępna w innych mediach za darmo</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Materiał autorski, sygnowany nazwiskiem dziennikarza</div>
-              </div>
+              <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;">
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Treść premium (paywall)</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">ePV share ≥ 70%</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Unikalna wartość — niedostępna w innych mediach za darmo</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Materiał autorski, sygnowany nazwiskiem dziennikarza</li>
+              </ul>
             </div>
           </div>
 
-          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+          <div style="background:#FFFDE7;border-radius:10px;overflow:hidden;">
             <div style="height:5px;background:#FFE566;"></div>
-            <div style="padding:20px;background:#f9f9f9;">
+            <div style="padding:20px;background:#FFFDE7;">
               <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Dobry kandydat</div>
               <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Spełnia kilka z tych cech</div>
-              <div style="display:flex;flex-direction:column;gap:8px;">
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Podobne artykuły wcześniej generowały subskrypcje</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Dużo czytelników za paywallem (wysoki ruch off-limit)</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Temat aktualny — w centrum debaty publicznej</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Potencjał do dyskusji w mediach społecznościowych</div>
-              </div>
+              <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;">
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Podobne artykuły wcześniej generowały subskrypcje</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Dużo czytelników za paywallem (wysoki ruch off-limit)</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Temat aktualny — w centrum debaty publicznej</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Potencjał do dyskusji w mediach społecznościowych</li>
+              </ul>
             </div>
           </div>
 
-          <div style="background:#f9f9f9;border-radius:10px;overflow:hidden;">
+          <div style="background:#FFFDE7;border-radius:10px;overflow:hidden;">
             <div style="height:5px;background:#FFF0A0;"></div>
-            <div style="padding:20px;background:#f9f9f9;">
+            <div style="padding:20px;background:#FFFDE7;">
               <div style="font-size:15px;font-weight:900;color:#000;margin-bottom:2px;">Warto rozważyć</div>
               <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Dodatkowe argumenty za</div>
-              <div style="display:flex;flex-direction:column;gap:8px;">
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Zawiera wideo, infografikę lub mapę</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Ciąg dalszy tematu, który wcześniej przyciągnął subskrybentów</div>
-                <div style="font-size:12px;color:#333;padding:8px 10px;background:#fff;border-radius:6px;">Ekskluzywny rozmówca lub unikalne źródło</div>
-              </div>
+              <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;">
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Zawiera wideo, infografikę lub mapę</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Ciąg dalszy tematu, który wcześniej przyciągnął subskrybentów</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Ekskluzywny rozmówca lub unikalne źródło</li>
+              </ul>
             </div>
           </div>
 
         </div>
 
-        <div style="background:#f9f9f9;border-radius:10px;padding:16px 24px;text-align:center;">
+        <div style="background:#FFFDE7;border-radius:10px;padding:16px 24px;text-align:center;">
           <span style="font-size:13px;font-weight:700;color:#333;letter-spacing:.03em;">Dążymy do tego, żeby treści prezentowane w sekcji odpowiadały na każdy element</span>
         </div>
 
@@ -1550,18 +1568,210 @@ function togglePremiumInstructions() {
   if (isOpen) {
     panel.style.display = 'none';
     arrow.style.transform = 'rotate(0deg)';
-    btn.querySelector('span').textContent = 'Zasady wydawania Sekcji Premium na SG';
+    btn.querySelector('span').textContent = 'DLA REDAKCJI: Zasady wydawania sekcji';
   } else {
     panel.style.display = 'block';
     arrow.style.transform = 'rotate(180deg)';
-    btn.querySelector('span').textContent = 'Ukryj instrukcje dot. Sekcji Premium';
+    btn.querySelector('span').textContent = 'UKRYJ zasady wydawania sekcji';
     setTimeout(() => {
       equalizePubliGrid();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
   }
 }
+
+function toggleTechInstructions() {
+  const panel = document.getElementById('panel-tech-instructions');
+  const arrow = document.getElementById('btn-tech-arrow');
+  const btn   = document.getElementById('btn-tech-instructions');
+  const isOpen = panel.style.display !== 'none';
+
+  if (isOpen) {
+    panel.style.display = 'none';
+    arrow.style.transform = 'rotate(0deg)';
+    btn.querySelector('span').textContent = 'DLA WYDAWCÓW: Instrukcja wydawania sekcji';
+  } else {
+    panel.style.display = 'block';
+    arrow.style.transform = 'rotate(180deg)';
+    btn.querySelector('span').textContent = 'UKRYJ instrukcję wydawania sekcji';
+    setTimeout(() => {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+}
 </script>
+
+<!-- ====== PANEL: INSTRUKCJA TECHNICZNA ====== -->
+<div id="panel-tech-instructions" style="display:none;background:var(--cream);border-top:3px solid #FFD200;">
+<section style="background:var(--cream);min-height:auto;padding:80px 60px 80px;display:block;">
+
+  <div style="max-width:990px;margin:0 auto;">
+    <div style="background:#fff;border-radius:16px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
+      <h3 style="font-size:22px;font-weight:900;color:#000;margin-bottom:40px;line-height:1.2;">Instrukcja wydawania sekcji</h3>
+
+      <div style="display:flex;flex-direction:column;gap:40px;">
+
+        <!-- 1. NAZWA I ZASILANIE -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">1</span>
+            Nazwa i zasilanie
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+
+              <div style="background:#f2f2f2;border-radius:10px;padding:18px 20px;">
+                <p style="font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Zasilanie</p>
+                <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;"><strong>Nazwa listy redakcyjnej zasilającej sekcję:</strong> SG Onet: najlepsze w premium (ustalona z wydawcami).</p>
+                <p style="font-size:13px;color:#333;line-height:1.7;margin:0;"><strong>Personalizacja w sekcji:</strong> Tak — wpięty eksperyment o nazwie „najlepsze w premium".</p>
+              </div>
+
+              <div style="background:#f2f2f2;border-radius:10px;padding:18px 20px;">
+                <p style="font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Dodatkowo włączone</p>
+                <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+                  <li style="font-size:13px;color:#333;line-height:1.7;">alternatywne tytuły</li>
+                  <li style="font-size:13px;color:#333;line-height:1.7;">deboosting Clk + VA</li>
+                  <li style="font-size:13px;color:#333;line-height:1.7;">piny</li>
+                </ul>
+              </div>
+
+              <div style="background:#f2f2f2;border-radius:10px;padding:18px 20px;">
+                <p style="font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Trwają prace nad</p>
+                <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+                  <li style="font-size:13px;color:#333;line-height:1.7;">etykietami „Soft pin", „Hardpin" i „Szyba" (docelowo mają działać jak w Widgecie, aktualnie zarezerwowane są dla eksperymentu Unifeed)</li>
+                  <li style="font-size:13px;color:#333;line-height:1.7;">włączeniem wyników w rekomendacjach na liście SG Onet: najlepsze w premium</li>
+                </ul>
+              </div>
+
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+              <img src="https://cdn.raspaid.pl/zasoby/lista_sg_onet_najlepsze_w_premium.png" alt="Lista SG Onet najlepsze w premium" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;"></div>
+
+        <!-- 2. STEROWANIE W EDITORIAL CONFIG -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">2</span>
+            Sterowanie sekcją w Editorial Config
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="padding:0 0 20px;">
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;">Sterowanie bez zmian. Sekcją sterujemy w segmencie <strong>„Important News"</strong>.</p>
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;"><strong>Mobile:</strong> zaznacz checkbox <strong>Show Premium on Mobile</strong> w polu Mobile Widget Type.</p>
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0;"><strong>Desktop:</strong> wybierz opcję <strong>Widget Premium (5+3 elementy)</strong> w polu Desktop widget type.</p>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+              <img src="https://cdn.raspaid.pl/zasoby/sterowanie_sekcja_w_editorial_config.png" alt="Sterowanie sekcją w Editorial Config" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;"></div>
+
+        <!-- 3. WAŻNE ZALEŻNOŚCI -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">3</span>
+            Ważne zależności
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="padding:0 0 20px;">
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;">Sekcja <strong>zastępuje obecną sekcję premium</strong> — jeśli włączony jest widget premium, sekcja Premium Standard/Premium Magazine powinna być wyłączona. Źródło zasilania obu jest tożsame.</p>
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">Uruchomienie Premium Magazine spowoduje zdublowanie identycznych sekcji pod sobą na mobile.</p>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+              <img src="https://cdn.raspaid.pl/zasoby/premium_standard_i_premium_magazine.jpg" alt="Premium Standard i Premium Magazine" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;"></div>
+
+        <!-- 4. PODLEWKI KOLORYSTYCZNE -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">4</span>
+            Podlewki kolorystyczne
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="padding:0 0 20px;">
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;">Domyślnie ustawiona <strong>czarna podlewka</strong>. Zmiana możliwa z Editorial Config — prosimy <strong>nie dokonywać zmian bez kontaktu z Product Managerem SG Onet</strong>.</p>
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">Podlewkę można ustawiać jak dotychczas — prosimy korzystać z tej opcji <strong>tylko w razie konieczności</strong> (najlepiej po wyłączeniu sekcji premium z widgetu i w porozumieniu z Product Managerem SG Onet).</p>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+              <img src="https://cdn.raspaid.pl/zasoby/podlewki_kolorystyczne.jpg" alt="Podlewki kolorystyczne" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;"></div>
+
+        <!-- 5. BRANDING -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">5</span>
+            Branding sekcji
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="padding:0 0 20px;">
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;">Ustawienia brandingu pozostają bez zmian. Ewentualny branding widgetu wyświetli się <strong>nad całą sekcją</strong>, czyli także nad częścią Premium (desktop).</p>
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">Na mobile to dwie osobne sekcje — branding nie obejmuje części premium.</p>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+              <img src="https://cdn.raspaid.pl/zasoby/branding_sekcji.png" alt="Branding sekcji" style="width:100%;height:auto;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#f0ede8;"></div>
+
+        <!-- 6. DODATKOWE OPCJE -->
+        <div>
+          <h4 style="font-size:14px;font-weight:900;color:#000;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="background:#FFD200;color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">6</span>
+            Dodatkowe opcje w widgecie
+          </h4>
+          <div style="margin-left:38px;">
+            <div style="padding:0 0 20px;">
+              <p style="font-size:13px;color:#333;line-height:1.7;margin:0;">Obecność części premium <strong>nie koliduje</strong> z dodatkowymi opcjami w środkowej kolumnie — wstawieniem obrazka oraz pionowym video. W razie potrzeby można z nich nadal korzystać.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+                <img src="https://cdn.raspaid.pl/zasoby/Dodatkowe_opcje_w_Widgecie_1.jpg" alt="Dodatkowe opcje w widgecie 1" style="width:100%;height:auto;display:block;">
+              </div>
+              <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.07);">
+                <img src="https://cdn.raspaid.pl/zasoby/Dodatkowe_opcje_w_Widgecie_2.jpg" alt="Dodatkowe opcje w widgecie 2" style="width:100%;height:auto;display:block;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PRZYCISK ZWIŃ -->
+      <div style="text-align:left;margin-top:48px;">
+        <button onclick="toggleTechInstructions()" style="
+          background:transparent;color:#111;
+          border:1.5px solid #bbb;
+          padding:10px 22px;border-radius:24px;
+          font-family:'Fira Sans',Arial,sans-serif;
+          font-size:12px;font-weight:700;
+          cursor:pointer;letter-spacing:0.05em;
+          display:inline-flex;align-items:center;gap:8px;
+        ">
+          <span>↑</span><span>Zwiń</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+</div>
 
 
 
@@ -2579,5 +2789,46 @@ function switchBA(variant, btn) {
 })();
 
 </script>
+<!-- ====== STOPKA ====== -->
+<footer style="background:#000;padding:60px;display:block;">
+  <div style="max-width:1160px;margin:0 auto;">
+
+    <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#555;margin:0 0 32px;">Zespół projektu</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:40px;align-items:start;">
+
+      <div>
+        <p style="font-size:11px;font-weight:700;color:#FFD200;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Zespoły techniczne</p>
+        <p style="font-size:13px;color:#888;line-height:1.6;margin:0 0 4px;">Zespół PCP</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0 0 16px;">Paweł Wąchała<br>Rafał Borowiec<br>Sebastian Zbijowski</p>
+        <p style="font-size:13px;color:#888;line-height:1.6;margin:0 0 4px;">Zespół MPP</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Paweł Lenik<br>Marek Kuś<br>Krzysztof Piątek</p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:700;color:#FFD200;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">UX, projekty</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Bartłomiej Stokłosa</p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:700;color:#FFD200;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Marketing</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Justyna Świtaj<br>Marek Łużyński</p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:700;color:#FFD200;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Analityka</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Natalia Urbanowicz</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid #222;display:flex;align-items:center;justify-content:space-between;">
+      <p style="font-size:12px;color:#444;margin:0;">Akwizycja Premium · SG Onet · RASP · Ringier Axel Springer Poland · 2025</p>
+      <p style="font-size:12px;color:#444;font-style:italic;margin:0;">Dokument wewnętrzny</p>
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
