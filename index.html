@@ -491,7 +491,12 @@
   .screen-card { display: flex; flex-direction: column; gap: 14px; }
   .screen-label { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); }
   .screen-img { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.12); border: 1px solid rgba(0,0,0,.06); }
-  .screen-img img { width: 100%; display: block; }
+  .screen-img img {
+  max-width: 85%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
   .screen-desc { font-size: 14px; color: #333; line-height: 1.65; }
   .screen-desc strong { display: block; font-size: 13px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
   .bullet-list { list-style: none; padding: 0; margin-top: 10px; }
