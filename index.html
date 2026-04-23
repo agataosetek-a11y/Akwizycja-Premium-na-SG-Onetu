@@ -1202,8 +1202,8 @@
   <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Prowadzimy użytkownika przez serwis</h2>
   <p class="section-lead" contenteditable="false">Belka przypomina. Sekcja pokazuje realną wartość.<br>Onboarding tłumaczy pakiet Premium. Underonboarding zachęca do subskrypcji.</p>
 
-  <div style="display:flex; justify-content:flex-end; margin-bottom:20px; width:1282px;">
-    <div class="acceptance-note" style="max-width:560px;position:relative;right:-265px;">
+  <div style="display:flex; margin-bottom:20px; width:1282px; padding-left:276px;">
+    <div class="acceptance-note" style="max-width:780px;font-style:italic;">
       <span class="acc-icon">✓</span>
       <span contenteditable="false">Ostateczny widok wszystkich placementów zaakceptowany przez <strong>UX</strong>, <strong>marketing</strong> oraz — w przypadku Sekcji Premium — również <strong>redakcję</strong>.</span>
     </div>
@@ -2483,7 +2483,7 @@ function toggleEdit() {
 // Measured from the full Onet page screenshot
 const TARGETS = {
   // Wariant A — wszystkie dymki po lewej, linia prosta pozioma do elementu
-  belka:      { x: 0.090, y: 0.010 },   // lewa krawędź logo Premium w belce
+  belka:      { x: 0.090, y: 0.005 },   // lewa krawędź logo Premium w belce
   premium:    { x: 0.775, y: 0.391 },   // tytuł 'Trump odsuwa ultimatum'
   onboarding: { x: 0.196, y: 0.729 },   // centrum zielonego kafelka
   under:      { x: 0.086, y: 0.755 },   // lewy brzeg bannera Under Onboarding
@@ -2510,7 +2510,7 @@ function drawLines() {
 
   const pairs = currentVariant === 'a'
     ? [
-        { bubble: 'bubble-belka',      tx: 0.090, ty: 0.010 },
+        { bubble: 'bubble-belka',      tx: 0.090, ty: 0.005 },
         { bubble: 'bubble-premium',    tx: 0.775, ty: 0.366 },
         { bubble: 'bubble-onboarding', tx: 0.196, ty: 0.729 },
         { bubble: 'bubble-under',      tx: 0.695, ty: 0.797 },
@@ -2534,6 +2534,9 @@ function drawLines() {
       const fullDotX = sx + sw * tx;
       const halfDist = (fullDotX - startX) * 0.5;
       endX = startX + halfDist;
+    } else if (bubble === 'bubble-belka') {
+      lineY = br.top - layoutRect.top + br.height * 0.10;  // title height
+      endX = sx + sw * tx;
     } else {
       lineY = br.top - layoutRect.top + br.height / 2;
       endX = sx + sw * tx;
@@ -2591,6 +2594,7 @@ function positionBubbles() {
   };
 
   const pixelOffsets = {
+    'bubble-belka':      90,
     'bubble-onboarding': -100,
     'bubble-under':      -125,
     'bubble-layer':      -20,
