@@ -1202,8 +1202,8 @@
   <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Prowadzimy użytkownika przez serwis</h2>
   <p class="section-lead" contenteditable="false">Belka przypomina. Sekcja pokazuje realną wartość.<br>Onboarding tłumaczy pakiet Premium. Underonboarding zachęca do subskrypcji.</p>
 
-  <div style="display:flex; margin-bottom:20px; width:1282px; padding-left:276px;">
-    <div class="acceptance-note" style="max-width:780px;font-style:italic;">
+  <div id="acceptance-wrap" style="margin-bottom:20px;width:1282px;">
+    <div class="acceptance-note" id="acceptance-note" style="max-width:780px;font-style:italic;display:inline-block;">
       <span class="acc-icon">✓</span>
       <span contenteditable="false">Ostateczny widok wszystkich placementów zaakceptowany przez <strong>UX</strong>, <strong>marketing</strong> oraz — w przypadku Sekcji Premium — również <strong>redakcję</strong>.</span>
     </div>
@@ -2649,6 +2649,19 @@ function positionBubbles() {
 window.addEventListener('load', () => {
   positionBubbles();
   setTimeout(drawLines, 100);
+
+  function alignAcceptanceNote() {
+    const bubBelka = document.getElementById('bubble-belka');
+    const note = document.getElementById('acceptance-note');
+    const wrap = document.getElementById('acceptance-wrap');
+    if (!bubBelka || !note || !wrap) return;
+    const wrapRect = wrap.getBoundingClientRect();
+    const bubRect = bubBelka.getBoundingClientRect();
+    const leftOffset = bubRect.left - wrapRect.left;
+    note.style.marginLeft = leftOffset + 'px';
+  }
+  setTimeout(alignAcceptanceNote, 100);
+  window.addEventListener('resize', alignAcceptanceNote);
 
   // Match modal height to welcome screen
   function matchModalHeight() {
