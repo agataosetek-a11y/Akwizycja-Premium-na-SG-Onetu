@@ -391,7 +391,7 @@
     margin-top: 8px;
   }
 
-  .ws-col { display: flex; flex-direction: column; gap: 20px; }
+  .ws-col { display: flex; flex-direction: column; gap: 12px; }
 
   .ws-screen-wrap {
     border-radius: 12px;
@@ -1024,26 +1024,30 @@
 
 
 <!-- IMAGE BAR -->
-<div id="img-bar" style="background:#000;display:flex;align-items:flex-end;justify-content:center;padding:80px 0 16px;">
+<div id="img-bar" style="background:#000;display:flex;align-items:flex-end;justify-content:center;padding:80px 0 60px;">
   <img src="https://cdn.raspaid.pl/zasoby/opremium%20pytaj%20dlaczego.png" alt="Onet Premium Pytaj dlaczego" style="height:160px;width:auto;">
 </div>
 <!-- ====== SLIDE 1: HERO ====== -->
 <section class="slide-hero">
-  <div style="display:inline-flex;flex-direction:column;align-items:stretch;width:50%;">
-    <h1 class="hero-headline" style="max-width:none;font-size:60px;white-space:nowrap;">
+  <div style="display:inline-flex;flex-direction:column;align-items:stretch;width:65%;">
+    <h1 class="hero-headline" style="max-width:none;font-size:60px;white-space:nowrap;margin-bottom:8px;">
       <span contenteditable="false">Akwizycja Premium na SG Onetu</span>
     </h1>
 
-    <div id="hero-image-stats">
-      <img src="https://cdn.raspaid.pl/zasoby/Od%20ods%C5%82ony%20do%20subskrypcji.svg" alt="Od odsłony do subskrypcji" id="hero-svg" style="width:100%;height:auto;display:block;">
-      <div class="stats-row" style="border-radius:0 0 14px 14px;">
+    <div id="hero-image-stats" style="margin-top:8px;">
+      <img src="https://cdn.raspaid.pl/zasoby/Od%20ods%C5%82ony%20do%20subskrypcji.svg" alt="Od odsłony do subskrypcji" id="hero-svg" style="width:85%;height:auto;display:block;margin-bottom:12px;">
+      <div class="stats-row" style="border-radius:14px;">
+        <div class="stat-box">
+          <span class="stat-num" contenteditable="false" style="font-size:32px;">✦</span>
+          <span class="stat-label" contenteditable="false">Dedykowana linia ekspozycyjna dla komunikacji premium, w większości uniezależniona od standardowej siatki reklamowej.</span>
+        </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">6</span>
           <span class="stat-label" contenteditable="false">nowych placementów akwizycyjnych</span>
         </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">3</span>
-          <span class="stat-label" contenteditable="false">typy użytkowników: <strong>odkrywający Premium,<br>rozważający subskrypcję<br>i ci, którzy z niej zrezygnowali.</strong> Każdy z dedykowaną linią komunikacji.</span>
+          <span class="stat-label" contenteditable="false">typy użytkowników: odkrywający Premium, rozważający subskrypcję oraz po rezygnacji. Każdy segment ma dedykowaną linię komunikacji z dopasowanym przekazem i selekcją ekspozycji.</span>
         </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">1</span>
@@ -1051,7 +1055,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 
@@ -1151,15 +1154,40 @@
 </section>
 
 
+<!-- ====== SLIDE: DLACZEGO TERAZ ====== -->
+<section style="background:var(--cream);padding:90px 60px 80px;display:block;min-height:auto;position:relative;">
+  <img src="https://cdn.raspaid.pl/zasoby/dlaczego_teraz%20(1).png" alt="Dlaczego teraz?" style="height:72px;width:auto;display:block;margin-bottom:32px;">
+  <p style="font-size:18px;color:#333;line-height:1.85;max-width:780px;">Stawiamy na budowanie relacji z Userem, nie na pojedynczą odsłonę — a subskrypcja to jej najgłębszy wyraz. SG jest naszym najważniejszym assetem i miejscem, w którym jesteśmy najbliżej hard userów. CleanUp dał nam przestrzeń, którą świadomie przeznaczamy na akwizycję Premium — bez naruszania fundamentów produktu. Przestawiamy SG w stronę akwizycyjną. Kolejny krok w strategicznym kierunku.</p>
+  <div style="position:absolute;top:50%;right:120px;transform:translateY(-50%);display:flex;gap:20px;">
+    <svg width="120" height="120" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="80" height="80" rx="16" fill="#FFD200"/>
+      <circle cx="40" cy="26" r="12" fill="none" stroke="#111" stroke-width="2.2"/>
+      <path d="M18,60 C18,44 62,44 62,60" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <svg width="120" height="120" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="80" height="80" rx="16" fill="#FFD200"/>
+      <rect x="18" y="44" width="12" height="22" rx="2" fill="#111"/>
+      <rect x="34" y="34" width="12" height="32" rx="2" fill="#111"/>
+      <rect x="50" y="22" width="12" height="44" rx="2" fill="#111"/>
+      <path d="M50,18 L58,10 L66,18" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="58" y1="10" x2="58" y2="26" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
 <!-- ====== SLIDE 2: WELCOME + MODAL ====== -->
 <section class="slide-placement-intro">
   <h2 class="section-title" contenteditable="false">Welcome Screen lub Modal</h2>
   <p class="section-lead" contenteditable="false"><span style="white-space:nowrap;">Dwa wymienne formaty z ograniczoną częstotliwością wyświetlania.</span><br><span style="white-space:nowrap;">Użytkownik widzi tylko jeden z nich, otrzymując mocny przekaz na samym początku wizyty.</span></p>
-
   <div class="ws-grid">
 
     <!-- LEFT: Welcome Screen -->
     <div class="ws-col">
+      <div id="ws-badge" style="display:inline-flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1.5px solid #FFD200;border-radius:8px;padding:10px 14px;font-size:12px;color:#555;line-height:1.6;box-sizing:border-box;">
+        <span style="flex-shrink:0;font-weight:700;color:#9a7200;">⚠</span>
+        <span>Jeśli format Welcome Screen jest sprzedany komercyjnie, nasz akwizycyjny nie wyświetla się.</span>
+      </div>
+      <div id="ws-badge-spacer" style="visibility:hidden;font-size:12px;line-height:1.6;padding:10px 14px;border:1.5px solid transparent;border-radius:8px;display:none;">⚠ placeholder</div>
       <div class="ws-screen-wrap" id="welcome-wrap">
         <img src="https://cdn.raspaid.pl/zasoby/welcome_screen_onet.png" alt="Welcome Screen" />
       </div>
@@ -1179,6 +1207,10 @@
 
     <!-- RIGHT: Modal -->
     <div class="ws-col">
+      <div id="modal-badge" style="display:inline-flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1.5px solid #FFD200;border-radius:8px;padding:10px 14px;font-size:12px;color:#555;line-height:1.6;">
+        <span style="flex-shrink:0;font-weight:700;color:#9a7200;">⚠</span>
+        <span>Modal nie pojawia się, jeśli na stronie wyświetlany jest jakikolwiek Welcome Screen.</span>
+      </div>
       <div class="ws-screen-wrap" id="modal-wrap" style="overflow:hidden;">
         <img src="https://cdn.raspaid.pl/zasoby/Modal%20akwizycyjny.png" alt="Modal akwizycyjny" id="modal-img" style="width:100%;display:block;" />
       </div>
@@ -1194,17 +1226,17 @@
     </div>
 
   </div>
-</section>
 
+</section>
 <!-- ====== SLIDE 3: PLACEMENTS 3–6 ANNOTATED ====== -->
 <section class="slide-placements">
   <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Prowadzimy użytkownika przez serwis</h2>
   <p class="section-lead" contenteditable="false">Belka przypomina. Sekcja pokazuje realną wartość.<br>Onboarding tłumaczy pakiet Premium. Underonboarding zachęca do subskrypcji.</p>
 
   <div id="acceptance-wrap" style="margin-bottom:20px;width:1282px;">
-    <div class="acceptance-note" id="acceptance-note" style="max-width:none;font-style:italic;display:inline-block;white-space:nowrap;">
-      <span class="acc-icon">✓</span>
-      <span contenteditable="false">Ostateczny widok wszystkich placementów zaakceptowany przez <strong>UX</strong>, <strong>marketing</strong> oraz — w przypadku Sekcji Premium — również <strong>redakcję</strong>.</span>
+    <div id="acceptance-note" style="display:inline-flex;align-items:flex-start;gap:10px;background:#e8f5e9;border:1.5px solid #4caf50;border-radius:10px;padding:12px 18px;font-style:italic;white-space:nowrap;">
+      <span style="color:#2e7d32;font-size:16px;flex-shrink:0;">✅</span>
+      <span style="font-size:13px;color:#1b5e20;line-height:1.6;" contenteditable="false">Ostateczny widok wszystkich placementów zaakceptowany przez <strong>UX</strong>, <strong>marketing</strong>, <strong>dział prawny</strong> oraz — w przypadku Sekcji Premium — również <strong>redakcję</strong>.</span>
     </div>
   </div>
 
@@ -1226,15 +1258,15 @@
       <!-- 2. Sekcja Premium -->
       <div class="bubble b-right" id="bubble-premium">
         <h4 contenteditable="false">Sekcja Premium — Redakcja Poleca</h4>
-        <img src="https://cdn.raspaid.pl/zasoby/card%20sekcji%20premium.png" alt="Układ kart" style="width:100%;border-radius:6px;margin-bottom:10px;display:block;">
         <ul class="bubble-list">
           <li contenteditable="false">Sekcja dedykowana treściom Premium</li>
+          <li contenteditable="false"><strong>Nie zastępuje — uzupełnia.</strong> Promocja treści Premium w pozostałych miejscach SG pozostaje bez zmian. To dodatkowa powierzchnia, nie zamiennik</li>
           <li contenteditable="false">Brak labelek Premium oraz autora na cardach</li>
           <li contenteditable="false">Biała podlewka na dużym cardzie — zawsze tej samej wysokości</li>
           <li contenteditable="false">Tytuł maks. 3 linie. Rekomendowana liczba znaków tytułu to 65. Przy przepełnieniu obcinamy z (…)</li>
           <li contenteditable="false">Tytuł sekcji stały — taki sam na desktop i mobile (zatwierdzony przez Redakcję, Marketing oraz UX)</li>
           <li contenteditable="false">Dedykowane tytuły zajawek tylko dla tej listy materiałów</li>
-          <li contenteditable="false">Lista ręcznie premoderowana (min. 3, maks. 20 elementów) i personalizowana przez Aureus; deduplikowana z unifeedem i pilną extra; deboosting jak w Widgecie.</li>
+          <li contenteditable="false">Lista ręcznie premoderowana (min. 3, maks. 20 elementów) i personalizowana przez Aureus; deduplikowana z unifeedem i pilną extra; deboosting jak w Widgecie</li>
         </ul>
         <div class="bubble-tag">REALNA WARTOŚĆ</div>
       </div>
@@ -1298,8 +1330,8 @@
       display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
       flex:1;white-space:nowrap;
     ">
-      <span style="flex:1;text-align:center;">DLA REDAKCJI: Zasady publikowania w sekcji</span>
-      <span id="btn-premium-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+      <span id="btn-premium-label" style="flex:1;text-align:center;"><span style="opacity:.55;font-size:11px;letter-spacing:.12em;margin-right:6px;">ROZWIŃ ↓</span>DLA REDAKCJI: Zasady publikowania w sekcji</span>
+      
     </button>
     <button id="btn-tech-instructions" onclick="toggleTechInstructions()" style="
       background:#111;color:#FFD200;border:none;
@@ -1311,8 +1343,8 @@
       display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
       flex:1;white-space:nowrap;
     ">
-      <span style="flex:1;text-align:center;">DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
-      <span id="btn-tech-arrow" style="font-size:18px;transition:transform .3s;flex-shrink:0;">↓</span>
+      <span id="btn-tech-label" style="flex:1;text-align:center;"><span style="opacity:.55;font-size:11px;letter-spacing:.12em;margin-right:6px;">ROZWIŃ ↓</span>DLA WYDAWCÓW: Instrukcja wydawania sekcji</span>
+      
     </button>
   </div>
 </div>
@@ -1556,18 +1588,15 @@ function equalizePubliGrid() {
 
 function togglePremiumInstructions() {
   const panel = document.getElementById('panel-premium-instructions');
-  const arrow = document.getElementById('btn-premium-arrow');
   const btn   = document.getElementById('btn-premium-instructions');
   const isOpen = panel.style.display !== 'none';
 
   if (isOpen) {
     panel.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
-    btn.querySelector('span').textContent = 'DLA REDAKCJI: Zasady publikowania w sekcji';
+    document.getElementById('btn-premium-label').innerHTML = '<span style="opacity:.55;font-size:11px;letter-spacing:.12em;margin-right:6px;">ROZWIŃ ↓</span>DLA REDAKCJI: Zasady publikowania w sekcji';
   } else {
     panel.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
-    btn.querySelector('span').textContent = 'UKRYJ zasady publikowania w sekcji';
+    document.getElementById('btn-premium-label').innerHTML = 'UKRYJ zasady publikowania w sekcji';
     setTimeout(() => {
       equalizePubliGrid();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1577,18 +1606,15 @@ function togglePremiumInstructions() {
 
 function toggleTechInstructions() {
   const panel = document.getElementById('panel-tech-instructions');
-  const arrow = document.getElementById('btn-tech-arrow');
   const btn   = document.getElementById('btn-tech-instructions');
   const isOpen = panel.style.display !== 'none';
 
   if (isOpen) {
     panel.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
-    btn.querySelector('span').textContent = 'DLA WYDAWCÓW: Instrukcja wydawania sekcji';
+    document.getElementById('btn-tech-label').innerHTML = '<span style="opacity:.55;font-size:11px;letter-spacing:.12em;margin-right:6px;">ROZWIŃ ↓</span>DLA WYDAWCÓW: Instrukcja wydawania sekcji';
   } else {
     panel.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
-    btn.querySelector('span').textContent = 'UKRYJ instrukcję wydawania sekcji';
+    document.getElementById('btn-tech-label').innerHTML = 'UKRYJ instrukcję wydawania sekcji';
     setTimeout(() => {
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
@@ -1828,9 +1854,55 @@ function toggleTechInstructions() {
 
   </div>
 
+  <div id="premium-weekly" style="margin-top:24px;background:#FFFDE7;border-radius:12px;padding:20px 28px;width:1160px;margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px;box-sizing:border-box;">
+    <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="14" rx="2" stroke="#000" stroke-width="2"/><path d="M7 2v3M15 2v3M3 10h16" stroke="#000" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="15" r="1.5" fill="#000"/></svg>
+    </div>
+    <p style="font-size:13px;color:#555;line-height:1.7;margin:0;">Wyniki sprzedaży i efektywność placementów będą omawiane podczas cotygodniowego statusu analitycznego <strong>Premium Weekly</strong>, prowadzonego przez <strong>Natalię Urbanowicz</strong>.</p>
+  </div>
+
 </section>
+<!-- ====== SLIDE: PERSPEKTYWA RYZYK ====== -->
+<section style="background:var(--cream);padding:90px 60px 80px;display:block;min-height:auto;">
+  <h2 class="section-title" style="margin-bottom:12px;">Perspektywa ryzyk</h2>
+  <p class="section-lead" style="margin-bottom:40px;white-space:nowrap;">Potencjalne zmiany oraz obszary, które będziemy uważnie obserwować w trakcie działania</p>
 
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;width:1160px;margin:0 auto;">
 
+    <!-- Ryzyko 1 -->
+    <div style="background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 2px 16px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
+            <h3 style="font-size:17px;font-weight:900;color:#000;margin:0 0 14px;line-height:1.3;">Spadek zaangażowania (ePV/UU)</h3>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0 0 12px;">W części Widgeta świadomie stawiamy na sekcję wydawniczą, premoderowaną, zamiast personalizacji maksymalizującej kliknięcia — ta pozostaje w pozostałych częściach serwisu. Może przełożyć się to na spadek zaangażowania rozumianego jako ePV/UU.</p>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0;">Nie jest to nasz główny cel długoterminowy — idziemy w stronę relacji i subskrypcji, a przestrzeń po CleanUpie teraz świadomie zagospodarowujemy. ePV/UU i moc dystrybucyjną SG będziemy śledzić w raportach — z gotowością do korekt, jeśli dane pokażą, że są potrzebne.</p>
+    </div>
+
+    <!-- Ryzyko 2 -->
+    <div style="background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 2px 16px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
+            <h3 style="font-size:17px;font-weight:900;color:#000;margin:0 0 14px;line-height:1.3;">Sekcja „Redakcja poleca" może nie przełożyć się na wzrost akwizycji</h3>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0 0 12px;">Wzrost akwizycji z placementów akwizycyjnych (belka, Welcome Screen, modale) jest pewny. Z sekcji „Redakcja poleca" — niekoniecznie: dedykowane sekcje bywają zauważane, ale w dłuższym horyzoncie użytkownicy mogą zacząć je pomijać wzrokowo.</p>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0;">Warto pamiętać, że ta sekcja pełni także funkcję wizerunkową i brand-awarenessową — to stałe okno wystawowe Premium. Niezależnie od tego treści Premium pełnią dalej rolę akwizycyjną w pozostałych miejscach — w personalizacji, w sekcji Widget, w ścieżce artykułowej.</p>
+    </div>
+
+    <!-- Ryzyko 3 -->
+    <div style="background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 2px 16px rgba(0,0,0,.06);border-top:4px solid #FFD200;">
+            <h3 style="font-size:17px;font-weight:900;color:#000;margin:0 0 14px;line-height:1.3;">Spadek niektórych wyników reklamowych</h3>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0 0 12px;">Ryzyko pojawia się w dwóch miejscach. Po pierwsze — na SG mobile: dwie sekcje Premium pod sekcją Widget mogą skrócić ścieżkę scrolla użytkownika, ograniczając wyświetlenia slotów pod nimi. Po drugie — jeśli spadną ePV/UU, spadnie też inventory displayowe na artykułach.</p>
+      <p style="font-size:13px;color:#555;line-height:1.75;margin:0;">Najważniejsze sloty są raczej niezagrożone — Sponsor Dnia i Welcome Screen mają pierwszeństwo przed belką akwizycyjną. Po CleanUpie mamy na to przestrzeń, a metryki displayowe będziemy śledzić równolegle z akwizycyjnymi.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:24px;background:#FFFDE7;border-radius:12px;padding:20px 28px;width:1160px;margin-left:auto;margin-right:auto;display:flex;align-items:flex-start;gap:16px;box-sizing:border-box;">
+    <div style="flex-shrink:0;width:44px;height:44px;background:#FFD200;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="#000" stroke-width="2"/><path d="M4 19c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#000" stroke-width="2" stroke-linecap="round"/><path d="M15 6l1.5 1.5L19 5" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div>
+      <p style="font-size:13px;font-weight:800;color:#7a6000;margin:0 0 6px;text-transform:uppercase;letter-spacing:.06em;">Perspektywa subskrybentów</p>
+      <p style="font-size:13px;color:#555;line-height:1.7;margin:0;">Dla aktywnych subskrybentów zmiana działa na korzyść — stałe, przewidywalne okno Premium ułatwia dostęp do treści, za które płacą, i jest codziennym przypomnieniem jakości oferty.</p>
+    </div>
+  </div>
+
+</section>
 
 <!-- ====== SLIDE PRZED/PO ====== -->
 <section class="slide-before-after">
@@ -2010,46 +2082,30 @@ function toggleTechInstructions() {
 
 </section>
 
-<!-- ====== SLIDE 5: LINIE KOMUNIKACYJNE ====== -->
+<!-- ====== SLIDE: LINIE KOMUNIKACYJNE + SEGMENTACJA ====== -->
 <section class="slide-comms">
-  <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Jeden placement. Trzy linie komunikacji</h2>
-  <p class="section-lead" contenteditable="false"><span style="white-space:nowrap;">Placement jest ten sam — zmienia się linia komunikacyjna dobrana do profilu użytkownika.</span><br><span style="white-space:nowrap;">Winback, Prospekt i User widzą przekaz, który pasuje do tego, gdzie są.</span></p>
+  <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Trzy segmenty. Trzy linie komunikacji.</h2>
+  <p class="section-lead" contenteditable="false"><span style="white-space:nowrap;">Winback wraca, Prospekt rozważa, User poznaje.</span><br><span style="white-space:nowrap;">Placement jest ten sam — zmienia się przekaz dopasowany do profilu użytkownika.</span></p>
   <div class="comms-grid">
+
     <div class="comm-card">
       <span class="comm-tag winback">Winback</span>
       <div class="comm-title" contenteditable="false">Wróć do Premium</div>
-      <div class="comm-desc" contenteditable="false">Oparta na wspomnieniu wartości. Użytkownik wie, co traci — wystarczy mu przypomnieć i obniżyć barierę powrotu.</div>
+      <div class="comm-desc" contenteditable="false">Były subskrybent — zna wartość Premium. Przypominamy mu o niej z silnym przekazem powrotu i obniżamy barierę decyzji.</div>
     </div>
+
     <div class="comm-card">
       <span class="comm-tag prospekt">Prospekt</span>
       <div class="comm-title" contenteditable="false">Dołącz do Premium</div>
-      <div class="comm-desc" contenteditable="false">Bezpośredni przekaz z wyraźnym CTA i ceną. Użytkownik jest gotowy — pomagamy mu podjąć decyzję tu i teraz.</div>
+      <div class="comm-desc" contenteditable="false">Skłonność do zakupu określana na podstawie aktywności i częstotliwości wizyt. Użytkownik jest gotowy — bezpośredni przekaz z ceną i wyraźnym CTA pomaga podjąć decyzję tu i teraz.</div>
     </div>
+
     <div class="comm-card">
       <span class="comm-tag user">User</span>
       <div class="comm-title" contenteditable="false">Odkryj Premium</div>
-      <div class="comm-desc" contenteditable="false">Łagodne zaproszenie. Edukacja, wartość, brak presji — budujemy zainteresowanie na przyszłość.</div>
+      <div class="comm-desc" contenteditable="false">Pozostali użytkownicy. Łagodne zaproszenie — edukacja, wartość, brak presji. Budujemy świadomość i zainteresowanie na przyszłość.</div>
     </div>
-  </div>
-</section>
 
-<!-- ====== SLIDE 4: SEGMENTACJA ====== -->
-<section class="slide-segments">
-  <h2 class="section-title" contenteditable="false" style="white-space:nowrap;">Winback, Prospekt, User — każdy na innym etapie</h2>
-  <p class="section-lead" contenteditable="false">Winback wraca, Prospekt rozważa, User poznaje.<br>Segmentacja użytkowników odzwierciedla ich status i zaangażowanie.</p>
-  <div class="segments-row">
-    <div class="segment-card featured">
-      <div class="seg-header"><div class="seg-dot"></div><div class="seg-name" contenteditable="false">Winback</div></div>
-      <div class="seg-desc" contenteditable="false">Były subskrybent. Zna wartość Premium — przypominamy mu o niej z silnym przekazem powrotu.</div>
-    </div>
-    <div class="segment-card">
-      <div class="seg-header"><div class="seg-dot"></div><div class="seg-name" contenteditable="false">Prospekt</div></div>
-      <div class="seg-desc" contenteditable="false">Skłonność do zakupu określana na podstawie aktywności i częstotliwości wizyt na SG. Użytkownik, który jeszcze nie subskrybuje — czas go przekonać.</div>
-    </div>
-    <div class="segment-card">
-      <div class="seg-header"><div class="seg-dot"></div><div class="seg-name" contenteditable="false">User</div></div>
-      <div class="seg-desc" contenteditable="false">Pozostali. Budujemy świadomość i edukujemy — bez presji, ale z zachętą budując zainteresowanie na przyszłość.</div>
-    </div>
   </div>
 </section>
 
@@ -2216,6 +2272,39 @@ function toggleTechInstructions() {
         </td></tr>
         <tr class="tsep"><td colspan="99"></td></tr>
 
+        <!-- MODAL -->
+        <tr class="trow" id="trow-modal" style="height: 120px;padding-top:10px;">
+          <td class="tp" onclick="tToggle('modal')" style="padding-top:10px;">
+            <div class="tp-inner">
+              <div class="tp-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+              <div class="tp-text">
+                <span class="tp-name">Modal akwizycyjny</span>
+                <span class="tp-sub">Pop-up z ofertą</span>
+                
+              </div>
+              <div class="tp-chev" id="chev-modal" style="margin-top:30px;">
+                <svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </td>
+          <td class="tc tna" style="color:#c0392b;font-size:11px;font-weight:600;">Nie wyświetlamy temu segmentowi użytkowników</td>
+          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt"><span style="background:#fff3cd;color:#856404;padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px;">cap: 1/3 dni</span> · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
+          <td class="tc">„Come back" offer<span class="nt">z ceną</span><span class="nt"><span style="background:#fff3cd;color:#856404;padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px;">cap: 1/7 dni</span> · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
+          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt"><span style="background:#fff3cd;color:#856404;padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px;">cap: 1/5 dni</span> · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
+          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt"><span style="background:#fff3cd;color:#856404;padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px;">cap: 1/3 dni</span> · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
+          <td class="tc">Good Offer<span class="nt">trial za 0 zł</span><span class="nt"><span style="background:#fff3cd;color:#856404;padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px;">cap: 1/7 dni</span> · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
+          <td class="tc tna" style="color:#c0392b;font-size:11px;font-weight:600;">Nie wyświetlamy temu segmentowi użytkowników</td>
+        </tr>
+        <tr class="tg-row"><td colspan="99">
+          <div class="tg-panel" id="tg-modal">
+            <div class="tg-grid">
+              <div class="tg-block tg-span2"><div class="tg-label">Opis placementu</div><p class="tg-desc">Wyskakujący pop-up z ofertą Premium. Wyświetla się po wejściu na SG, ale <strong>wyłącznie w dni gdy nie jest aktywny Welcome Screen</strong> – user nigdy nie dostaje obu formatów tego samego dnia. Capping uzależniony od segmentu.</p></div>
+              <div class="tg-block"><div class="tg-label">Capping wg segmentu</div><div class="tg-terms"><div class="tg-term"><span class="tg-key">1/3 dni</span><span class="tg-val">Winback Fresh i High LTS / Low FRQ.</span></div><div class="tg-term"><span class="tg-key">1/5 dni</span><span class="tg-val">High LTS / High FRQ.</span></div><div class="tg-term"><span class="tg-key">1/7 dni</span><span class="tg-val">Winback Old i Low LTS / High FRQ.</span></div><div class="tg-term"><span class="tg-key">Nie wyświetlamy</span><span class="tg-val">Prospect Default i Low LTS / Low FRQ.</span></div></div></div>
+            </div>
+          </div>
+        </td></tr>
+        <tr class="tsep"><td colspan="99"></td></tr>
+
         <!-- TOP BELKA -->
         <tr class="trow" id="trow-top" style="height: 120px;">
           <td class="tp" onclick="tToggle('top')">
@@ -2244,39 +2333,6 @@ function toggleTechInstructions() {
             <div class="tg-grid">
               <div class="tg-block tg-span2"><div class="tg-label">Opis placementu</div><p class="tg-desc">Wąski pasek nad headerem serwisu – powyżej logo i nawigacji. <strong>Na mobile widoczny zawsze.</strong> Na desktopie widoczny gdy nie ma reklamy sponsorskiej – sponsoring ma pierwszeństwo. Komunikacja uzależniona od segmentu.</p></div>
               <div class="tg-block"><div class="tg-label">Typy komunikacji</div><div class="tg-terms"><div class="tg-term"><span class="tg-key">Good Offer</span><span class="tg-val">Oferta cenowa. Prezentacja najbardziej atrakcyjnej aktualnie oferty lub trialu za 0 zł.</span></div><div class="tg-term"><span class="tg-key">Come back</span><span class="tg-val">Oferta zapraszająca do powrotu.</span></div><div class="tg-term"><span class="tg-key">Universal</span><span class="tg-val">Kreacje bez ceny.</span></div></div></div>
-            </div>
-          </div>
-        </td></tr>
-        <tr class="tsep"><td colspan="99"></td></tr>
-
-        <!-- MODAL -->
-        <tr class="trow" id="trow-modal" style="height: 120px;padding-top:10px;">
-          <td class="tp" onclick="tToggle('modal')" style="padding-top:10px;">
-            <div class="tp-inner">
-              <div class="tp-icon"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-              <div class="tp-text">
-                <span class="tp-name">Modal akwizycyjny</span>
-                <span class="tp-sub">Pop-up z ofertą</span>
-                
-              </div>
-              <div class="tp-chev" id="chev-modal" style="margin-top:30px;">
-                <svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
-            </div>
-          </td>
-          <td class="tc tna">—</td>
-          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt">cap: 1/3 dni · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
-          <td class="tc">„Come back" offer<span class="nt">z ceną</span><span class="nt">cap: 1/7 dni · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
-          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt">cap: 1/5 dni · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
-          <td class="tc">Good Offer<span class="nt">z ceną</span><span class="nt">cap: 1/3 dni · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
-          <td class="tc">Good Offer<span class="nt">trial za 0 zł</span><span class="nt">cap: 1/7 dni · po 1 sek.</span><span class="ntw">tylko gdy brak Welcome Screen</span></td>
-          <td class="tc tna">—</td>
-        </tr>
-        <tr class="tg-row"><td colspan="99">
-          <div class="tg-panel" id="tg-modal">
-            <div class="tg-grid">
-              <div class="tg-block tg-span2"><div class="tg-label">Opis placementu</div><p class="tg-desc">Wyskakujący pop-up z ofertą Premium. Wyświetla się po wejściu na SG, ale <strong>wyłącznie w dni gdy nie jest aktywny Welcome Screen</strong> – user nigdy nie dostaje obu formatów tego samego dnia. Capping uzależniony od segmentu.</p></div>
-              <div class="tg-block"><div class="tg-label">Capping wg segmentu</div><div class="tg-terms"><div class="tg-term"><span class="tg-key">1/3 dni</span><span class="tg-val">Winback Fresh i High LTS / Low FRQ.</span></div><div class="tg-term"><span class="tg-key">1/5 dni</span><span class="tg-val">High LTS / High FRQ.</span></div><div class="tg-term"><span class="tg-key">1/7 dni</span><span class="tg-val">Winback Old i Low LTS / High FRQ.</span></div><div class="tg-term"><span class="tg-key">Nie wyświetlamy</span><span class="tg-val">Prospect Default i Low LTS / Low FRQ.</span></div></div></div>
             </div>
           </div>
         </td></tr>
@@ -2331,9 +2387,9 @@ function toggleTechInstructions() {
             </div>
           </td>
           <td class="tc">Kreacja uniwersalna<span class="nt">bez ceny</span></td>
-          <td class="tc tna">—</td>
+          <td class="tc tna" style="color:#c0392b;font-size:11px;font-weight:600;">Nie wyświetlamy temu segmentowi użytkowników</td>
           <td class="tc">„Come back" offer<span class="nt">z ceną</span></td>
-          <td class="tc tna">—</td>
+          <td class="tc tna" style="color:#c0392b;font-size:11px;font-weight:600;">Nie wyświetlamy temu segmentowi użytkowników</td>
           <td class="tc">Good Offer<span class="nt">z ceną</span></td>
           <td class="tc">Rotacja po 3 PV<span class="nt">kreacja uniwersalna bez ceny rotująca z kreacjami Good Offer z trialem za 0 zł</span></td>
           <td class="tc">Rotacja po 3 PV<span class="nt">kreacja uniwersalna bez ceny rotująca z kreacjami Good Offer z trialem za 0 zł (dwa warianty)</span></td>
@@ -2363,7 +2419,7 @@ function toggleTechInstructions() {
               </div>
             </div>
           </td>
-          <td class="tc talways" colspan="7">★&ensp;Wyświetlana zawsze — dla wszystkich segmentów, bez cappingu i targetowania</td>
+          <td class="tc talways" colspan="7">★&ensp;Stałe miejsce ekspozycji treści premium na SG — element strategii wydawniczej, nie tylko akwizycyjnej. Wyświetlamy ją wszystkim użytkownikom</td>
         </tr>
         <tr class="tg-row"><td colspan="99">
           <div class="tg-panel" id="tg-prem">
@@ -2589,8 +2645,9 @@ function positionBubbles() {
 
   const pixelOffsets = {
     'bubble-belka':      90,
-    'bubble-onboarding': -100,
-    'bubble-under':      -125,
+    'bubble-premium':    35,
+    'bubble-onboarding': -45,
+    'bubble-under':      -70,
     'bubble-layer':      -20,
   };
 
@@ -2625,17 +2682,18 @@ function positionBubbles() {
     if (mAlt) mAlt.style.top = (sy + sh * 0.700) + 'px';
   }
 
-  // Prevent onboarding and under from overlapping
-  const bubOnb2 = document.getElementById('bubble-onboarding');
-  if (bubOnb2) {
-    const bubUnder = document.getElementById('bubble-under');
-    if (bubUnder) {
-      const underH = bubUnder.offsetHeight;
-      const finalTop = sy + sh * 0.863 - 180;
-      bubUnder.style.top = (finalTop + underH / 2) + 'px';
-      bubUnder.style.transform = 'translateY(-50%)';
-    }
-  }
+  // Set Under Onboarding exactly 5px below Onboarding bubble — runs after layout settles
+  setTimeout(() => {
+    const bubOnb3 = document.getElementById('bubble-onboarding');
+    const bubUnder2 = document.getElementById('bubble-under');
+    const layout2 = document.getElementById('annotatedLayout');
+    if (!bubOnb3 || !bubUnder2 || !layout2) return;
+    const layoutR = layout2.getBoundingClientRect();
+    const onbR = bubOnb3.getBoundingClientRect();
+    const onbBottom = onbR.bottom - layoutR.top;
+    bubUnder2.style.top = (onbBottom + 5) + 'px';
+    bubUnder2.style.transform = 'none';
+  }, 50);
 }
 
 
@@ -2643,6 +2701,48 @@ function positionBubbles() {
 window.addEventListener('load', () => {
   positionBubbles();
   setTimeout(drawLines, 100);
+
+  function alignModalBadge() {
+    const modalWrap = document.getElementById('modal-wrap');
+    const badge = document.getElementById('modal-badge');
+    const badgeWrap = document.getElementById('modal-badge-wrap');
+    if (!modalWrap || !badge || !badgeWrap) return;
+    const mRect = modalWrap.getBoundingClientRect();
+    const wRect = badgeWrap.getBoundingClientRect();
+    badge.style.marginLeft = (mRect.left - wRect.left) + 'px';
+    badge.style.width = mRect.width + 'px';
+  }
+  setTimeout(alignModalBadge, 300);
+  window.addEventListener('resize', alignModalBadge);
+
+  function equalizeWsBadges() {
+    const badge = document.getElementById('modal-badge');
+    const spacer = document.getElementById('ws-badge-spacer');
+    const wsBadge = document.getElementById('ws-badge');
+    if (!badge || !spacer) return;
+    const h = badge.offsetHeight;
+    spacer.style.height = h + 'px';
+    if (wsBadge) wsBadge.style.height = h + 'px';
+  }
+  setTimeout(equalizeWsBadges, 200);
+  window.addEventListener('resize', equalizeWsBadges);
+
+  // Align Premium Weekly badge to grid width
+  function alignPremiumWeekly() {
+    const grid = document.querySelector('.doc-grid') || document.querySelector('[style*="1160px"]');
+    const pw = document.getElementById('premium-weekly');
+    if (!pw) return;
+    const section = pw.closest('section');
+    if (!section) return;
+    const sRect = section.getBoundingClientRect();
+    const pwRect = pw.getBoundingClientRect();
+    // find 4-card grid
+    const cards = section.querySelector('[style*="grid-template-columns:1fr 1fr"]');
+    if (!cards) return;
+    const cRect = cards.getBoundingClientRect();
+    pw.style.marginLeft = (cRect.left - sRect.left - parseFloat(getComputedStyle(section).paddingLeft || 0)) + 'px';
+    pw.style.width = cRect.width + 'px';
+  }
 
   function alignAcceptanceNote() {
     const bubBelka = document.getElementById('bubble-belka');
@@ -2834,7 +2934,7 @@ function switchBA(variant, btn) {
 
       <div>
         <p style="font-size:11px;font-weight:700;color:#FFD200;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Marketing</p>
-        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Marek Łużyński<br>Justyna Świtaj</p>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin:0;">Justyna Świtaj<br>Marek Łużyński</p>
       </div>
 
       <div>
