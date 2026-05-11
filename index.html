@@ -1047,7 +1047,7 @@
         </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">3</span>
-          <span class="stat-label" contenteditable="false">3 typy użytkowników: <strong>odkrywający Premium, rozważający subskrypcję oraz Ci, którzy z niej zrezygnowali.</strong> Każdy segment ma dopasowaną linię komunikacji. Nie wszystkie formaty są wyświetlane wszystkim użytkownikom.</span>
+          <span class="stat-label" contenteditable="false">typy użytkowników: <strong>odkrywający Premium, rozważający subskrypcję oraz Ci, którzy z niej zrezygnowali.</strong> Każdy segment ma dopasowaną linię komunikacji. Nie wszystkie formaty są wyświetlane wszystkim użytkownikom.</span>
         </div>
         <div class="stat-box">
           <span class="stat-num" contenteditable="false">1</span>
@@ -1527,7 +1527,7 @@
               <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;">Spełnia kilka z tych cech</div>
               <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;">
                 <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Podobne artykuły wcześniej generowały subskrypcje</li>
-                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Dużo czytelników za paywallem (wysoki ruch off-limit)</li>
+                <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Dużo czytelników za paywallem (wysoki ruch off-limit). Dodatkowym wskazaniem wysoki ruch Subskrybentów</li>
                 <li style="font-size:12px;color:#333;padding:2px 0;line-height:1.5;">Temat aktualny — w centrum debaty publicznej</li>
                               </ul>
             </div>
@@ -1644,7 +1644,7 @@ function toggleTechInstructions() {
               <div style="background:#f2f2f2;border-radius:10px;padding:18px 20px;">
                 <p style="font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;">Zasilanie</p>
                 <p style="font-size:13px;color:#333;line-height:1.7;margin:0 0 8px;"><strong>Nazwa listy redakcyjnej zasilającej sekcję:</strong> SG Onet: najlepsze w premium (ustalona z wydawcami).</p>
-                <p style="font-size:13px;color:#333;line-height:1.7;margin:0;"><strong>Personalizacja w sekcji:</strong> Tak — wpięty eksperyment o nazwie „najlepsze w premium".</p>
+                <p style="font-size:13px;color:#333;line-height:1.7;margin:0;"><strong>Personalizacja w sekcji:</strong> Tak — wpięty eksperyment o nazwie „SG najlepsze w premium".</p>
               </div>
 
               <div style="background:#f2f2f2;border-radius:10px;padding:18px 20px;">
@@ -1911,9 +1911,28 @@ function toggleTechInstructions() {
   <p class="section-lead" contenteditable="false" style="white-space:nowrap;">Widok strony głównej Onetu bez elementów akwizycyjnych i z nowymi placementami Premium.</p>
 
   <!-- Toggle -->
-  <div class="ba-toggle">
+  <div class="ba-toggle" style="align-items:center;gap:6px;">
     <button class="ba-tab ba-tab-active" id="ba-tab-mobile" onclick="switchBA('mobile', this)">Mobile</button>
     <button class="ba-tab" id="ba-tab-desktop" onclick="switchBA('desktop', this)">Desktop</button>
+    <span style="width:1px;height:22px;background:#ccc;margin:0 6px;display:inline-block;"></span>
+    <button class="ba-tab" id="ba-tab-siatka-mobile" onclick="switchBA('siatka-mobile', this)">Siatka reklamowa — Mobile</button>
+    <button class="ba-tab" id="ba-tab-siatka-desktop" onclick="switchBA('siatka-desktop', this)">Siatka reklamowa — Desktop</button>
+  </div>
+
+  <!-- MOBILE variant -->
+  <div id="ba-mobile" class="ba-pair">
+    <div class="ba-col ba-col-mobile">
+      <div class="ba-label ba-label-before" contenteditable="false">Bez elementów akwizycyjnych</div>
+      <div class="ba-screen">
+        <img src="https://cdn.raspaid.pl/zasoby/Mobile%20przed.png" alt="Mobile przed">
+      </div>
+    </div>
+    <div class="ba-col ba-col-mobile">
+      <div class="ba-label ba-label-after" contenteditable="false">Z elementami akwizycyjnymi</div>
+      <div class="ba-screen ba-screen-after">
+        <img src="https://cdn.raspaid.pl/zasoby/Mobile%20po%201.png" alt="Mobile po">
+      </div>
+    </div>
   </div>
 
   <!-- DESKTOP variant -->
@@ -1921,7 +1940,7 @@ function toggleTechInstructions() {
     <div class="ba-col">
       <div class="ba-label ba-label-before" contenteditable="false">Bez elementów akwizycyjnych</div>
       <div class="ba-screen">
-		<img src="https://cdn.raspaid.pl/zasoby/Desktop%20przed.png" alt="Desktop przed">
+        <img src="https://cdn.raspaid.pl/zasoby/Desktop%20przed.png" alt="Desktop przed">
       </div>
     </div>
     <div class="ba-col">
@@ -1932,18 +1951,40 @@ function toggleTechInstructions() {
     </div>
   </div>
 
-  <!-- MOBILE variant -->
-  <div id="ba-mobile" class="ba-pair">
-    <div class="ba-col ba-col-mobile">
-      <div class="ba-label ba-label-before" contenteditable="false">Bez elementów akwizycyjnych</div>
-      <div class="ba-screen">
-		<img src="https://cdn.raspaid.pl/zasoby/Mobile%20przed.png" alt="Mobile przed">
+  <!-- SIATKA REKLAMOWA — MOBILE -->
+  <div id="ba-siatka-mobile" class="ba-hidden">
+    <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:16px;">Szczegółowy widok zmian w siatce reklamowej · Mobile</p>
+    <div style="display:grid;grid-template-columns:200px 200px;gap:60px;justify-content:center;">
+      <div class="ba-col ba-col-mobile">
+        <div class="ba-label ba-label-before" contenteditable="false">Bez elementów akwizycyjnych</div>
+        <div class="ba-screen">
+          <img src="https://cdn.raspaid.pl/zasoby/reklamy_przed_mobile.png" alt="Siatka reklamowa mobile – przed" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+      <div class="ba-col ba-col-mobile">
+        <div class="ba-label ba-label-after" contenteditable="false">Z elementami akwizycyjnymi</div>
+        <div class="ba-screen ba-screen-after">
+          <img src="https://cdn.raspaid.pl/zasoby/reklamy_po_mobile.png" alt="Siatka reklamowa mobile – po" style="width:100%;height:auto;display:block;">
+        </div>
       </div>
     </div>
-    <div class="ba-col ba-col-mobile">
-      <div class="ba-label ba-label-after" contenteditable="false">Z elementami akwizycyjnymi</div>
-      <div class="ba-screen ba-screen-after">
-		<img src="https://cdn.raspaid.pl/zasoby/Mobile%20po%201.png" alt="Mobile po">
+  </div>
+
+  <!-- SIATKA REKLAMOWA — DESKTOP -->
+  <div id="ba-siatka-desktop" class="ba-hidden">
+    <p style="font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:16px;">Szczegółowy widok zmian w siatce reklamowej · Desktop</p>
+    <div class="ba-pair">
+      <div class="ba-col">
+        <div class="ba-label ba-label-before" contenteditable="false">Bez elementów akwizycyjnych</div>
+        <div class="ba-screen">
+          <img src="https://cdn.raspaid.pl/zasoby/reklamy_przed_desktop.png" alt="Siatka reklamowa desktop – przed" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+      <div class="ba-col">
+        <div class="ba-label ba-label-after" contenteditable="false">Z elementami akwizycyjnymi</div>
+        <div class="ba-screen ba-screen-after">
+          <img src="https://cdn.raspaid.pl/zasoby/reklamy_po_desktop.png" alt="Siatka reklamowa desktop – po" style="width:100%;height:auto;display:block;">
+        </div>
       </div>
     </div>
   </div>
@@ -2813,8 +2854,13 @@ function switchVariant(v, btn) {
 function switchBA(variant, btn) {
   document.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('ba-tab-active'));
   btn.classList.add('ba-tab-active');
-  document.getElementById('ba-desktop').classList.toggle('ba-hidden', variant !== 'desktop');
-  document.getElementById('ba-mobile').classList.toggle('ba-hidden', variant !== 'mobile');
+  const allPanels = ['ba-desktop', 'ba-mobile', 'ba-siatka-mobile', 'ba-siatka-desktop'];
+  allPanels.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('ba-hidden');
+  });
+  const target = document.getElementById('ba-' + variant);
+  if (target) target.classList.remove('ba-hidden');
 }
 
 // ── STICKY TABLE HEADERS (fixed clone, stops at Under Onboarding) ─────────
